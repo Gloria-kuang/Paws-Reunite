@@ -1,0 +1,63 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+
+.header {
+  width: 100vw;
+  height: 10rem;
+  background-color: $color-primary;
+  padding: 1rem 4rem 0rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    display: block;
+    width: 8rem;
+    padding: 1rem 0;
+  }
+
+  &__user {
+    display: flex;
+    width: 15%;
+    align-items: flex-end;
+  }
+
+  &__user-signin {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__user-logo {
+    color: white;
+    margin-bottom: 1rem;
+  }
+}
+
+.navbar {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  list-style: none;
+  align-items: flex-end;
+  padding: 0;
+  margin-left: 10rem;
+  margin-right: 3rem;
+
+  &__list {
+    @include header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 50%;
+    background-color: $color-secondary;
+    border-radius: 10px 10px 0 0;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-secondary-light;
+      color: $color-primary;
+    }
+  }
+}

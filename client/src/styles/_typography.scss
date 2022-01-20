@@ -1,1 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap");
+
+@mixin header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
