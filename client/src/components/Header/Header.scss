@@ -26,15 +26,15 @@
     font-size: 1.5rem;
     margin-right: 1rem;
     margin-bottom: 1.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__user-logo {
     color: white;
     margin-bottom: 1rem;
-  }
-
-  &__icon {
-    margin-right: 0.5rem;
   }
 }
 
@@ -50,18 +50,71 @@
 
   &__list {
     @include header;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
+    position: relative;
     align-items: center;
     width: 30%;
     height: 50%;
     background-color: $color-secondary;
     border-radius: 10px 10px 0 0;
     color: $color-white;
+    text-align: center;
 
     &:hover {
       background-color: $color-secondary-light;
       color: $color-primary;
     }
+    &:focus {
+      color: $color-primary;
+    }
   }
+
+  &__text {
+    height: 100%;
+    width: 80%;
+    display: inline-block;
+    color: $color-white;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+      color: $color-primary;
+    }
+    &:focus {
+      color: $color-primary;
+      ~ .nav-content {
+        max-height: 400px;
+      }
+    }
+  }
+  &__icon {
+    display: inline-block;
+    height: 100%;
+    margin-right: 0.5rem;
+  }
+}
+
+.nav-content {
+  position: absolute;
+  top: 70px;
+  overflow: hidden;
+  background-color: $color-secondary-light;
+  max-height: 0;
+
+  &-link {
+    display: inline-block;
+    text-decoration: none;
+    color: $color-white;
+    padding: 0.5rem 0 1.5rem 0;
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-primary;
+    }
+  }
+}
+
+.nav-sub {
+  padding-left: 1rem;
 }

@@ -5,6 +5,7 @@ import { AiFillHome } from "react-icons/ai";
 import { GiMagnifyingGlass } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { BiUserCircle } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,15 +13,23 @@ function Header() {
       <img src={logo} alt="logo" className="header__logo"></img>
       <ul className="navbar">
         <li className="navbar__list">
-          <AiFillHome size={28} className="header__icon" />
+          <AiFillHome size={28} className="navbar__icon" />
           Home
         </li>
         <li className="navbar__list">
-          <GiMagnifyingGlass size={30} className="header__icon" />
-          Lost & Found
+          <Link className="navbar__text">
+            <GiMagnifyingGlass size={30} className="navbar__icon" />
+            Lost & Found
+          </Link>
+          <div className="nav-content">
+            <div className="nav-sub">
+              <Link className="nav-content-link">Report Lost</Link>
+              <Link className="nav-content-link">Report Found</Link>
+            </div>
+          </div>
         </li>
         <li className="navbar__list">
-          <FaMapMarkerAlt className="header__icon" />
+          <FaMapMarkerAlt className="navbar__icon" />
           Search
         </li>
       </ul>
