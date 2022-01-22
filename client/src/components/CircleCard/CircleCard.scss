@@ -1,0 +1,17 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.circle-card {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background-color: $color-primary;
+
+  &__content {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    text-align: center;
+  }
+}

@@ -13,7 +13,7 @@ function Header() {
       <img src={logo} alt="logo" className="header__logo"></img>
       <ul className="navbar">
         <li className="navbar__list">
-          <AiFillHome size={28} className="navbar__icon" />
+          <AiFillHome size={25} className="navbar__icon" />
           Home
         </li>
         <li className="navbar__list">
@@ -29,13 +29,21 @@ function Header() {
           </div>
         </li>
         <li className="navbar__list">
-          <FaMapMarkerAlt className="navbar__icon" />
-          Search
+          <Link className="navbar__text">
+            <FaMapMarkerAlt size={20} className="navbar__icon" />
+            Search
+          </Link>
+          <div className="nav-content">
+            <div className="nav-sub">
+              <Link className="nav-content-link">Search by Map</Link>
+              <Link className="nav-content-link">Search by Filter</Link>
+            </div>
+          </div>
         </li>
       </ul>
       <div className="header__user">
         <p className="header__user-signin">Sign In</p>
-        <BiUserCircle size={60} className="header__user-logo" />
+        <BiUserCircle size={50} className="header__user-logo" />
       </div>
     </header>
   );

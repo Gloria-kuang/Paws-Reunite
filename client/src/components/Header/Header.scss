@@ -1,5 +1,6 @@
 @use "../../styles/colors" as *;
 @use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
 
 .header {
   width: 100vw;
@@ -23,7 +24,7 @@
 
   &__user-signin {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-right: 1rem;
     margin-bottom: 1.5rem;
 
@@ -40,7 +41,7 @@
 
 .navbar {
   display: flex;
-  width: 50%;
+  width: 55%;
   height: 100%;
   list-style: none;
   align-items: flex-end;
@@ -49,7 +50,7 @@
   margin-right: 3rem;
 
   &__list {
-    @include header;
+    @include sub-header;
     display: inline-block;
     position: relative;
     align-items: center;
@@ -59,6 +60,10 @@
     border-radius: 10px 10px 0 0;
     color: $color-white;
     text-align: center;
+    text-transform: uppercase;
+    @include large-desktop {
+      @include header;
+    }
 
     &:hover {
       background-color: $color-secondary-light;
@@ -97,7 +102,7 @@
 
 .nav-content {
   position: absolute;
-  top: 70px;
+  top: 68px;
   overflow: hidden;
   background-color: $color-secondary-light;
   max-height: 0;
