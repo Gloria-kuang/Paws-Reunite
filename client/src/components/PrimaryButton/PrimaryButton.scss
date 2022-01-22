@@ -1,0 +1,18 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.primary-button {
+  background-color: $color-primary;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  height: 4rem;
+  text-transform: uppercase;
+  color: $color-white;
+  @include header;
+
+  &:hover {
+    background-color: $color-primary-light;
+  }
+}

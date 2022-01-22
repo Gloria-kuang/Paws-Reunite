@@ -1,0 +1,125 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.header {
+  width: 100vw;
+  height: 10rem;
+  background-color: $color-primary;
+  padding: 1rem 4rem 0rem;
+  display: flex;
+  justify-content: space-between;
+
+  &__logo {
+    display: block;
+    width: 8rem;
+    padding: 1rem 0;
+  }
+
+  &__user {
+    display: flex;
+    width: 15%;
+    align-items: flex-end;
+  }
+
+  &__user-signin {
+    color: white;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    margin-bottom: 1.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__user-logo {
+    color: white;
+    margin-bottom: 1rem;
+  }
+}
+
+.navbar {
+  display: flex;
+  width: 55%;
+  height: 100%;
+  list-style: none;
+  align-items: flex-end;
+  padding: 0;
+  margin-left: 10rem;
+  margin-right: 3rem;
+
+  &__list {
+    @include sub-header;
+    display: inline-block;
+    position: relative;
+    align-items: center;
+    width: 30%;
+    height: 50%;
+    background-color: $color-secondary;
+    border-radius: 10px 10px 0 0;
+    color: $color-white;
+    text-align: center;
+    text-transform: uppercase;
+    @include large-desktop {
+      @include header;
+    }
+
+    &:hover {
+      background-color: $color-secondary-light;
+      color: $color-primary;
+    }
+    &:focus {
+      color: $color-primary;
+    }
+  }
+
+  &__text {
+    height: 100%;
+    width: 80%;
+    display: inline-block;
+    color: $color-white;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+      color: $color-primary;
+    }
+    &:focus {
+      color: $color-primary;
+      ~ .nav-content {
+        max-height: 400px;
+      }
+    }
+  }
+  &__icon {
+    display: inline-block;
+    height: 100%;
+    margin-right: 0.5rem;
+  }
+}
+
+.nav-content {
+  position: absolute;
+  top: 68px;
+  overflow: hidden;
+  background-color: $color-secondary-light;
+  max-height: 0;
+
+  &-link {
+    display: inline-block;
+    text-decoration: none;
+    color: $color-white;
+    padding: 0.5rem 0 1.5rem 0;
+
+    &:hover {
+      text-decoration: underline;
+      color: $color-primary;
+    }
+  }
+}
+
+.nav-sub {
+  padding-left: 1rem;
+}
