@@ -39,9 +39,16 @@
   font-weight: 300;
 }
 
+@mixin large-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 @mixin header {
   font-size: 1.5rem;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 @mixin sub-header {
