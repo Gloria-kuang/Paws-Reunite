@@ -2,7 +2,7 @@
 @use "../../styles/typography" as *;
 
 .hero {
-  background-image: url("../../assets/image/hero-image.jpg");
+  background-image: url("../../assets/image/hero-image-min.jpg");
   background-position: center;
   background-size: cover;
   width: 100%;
@@ -13,14 +13,103 @@
 
   &__text {
     display: inline-block;
+    text-transform: uppercase;
     color: $color-white;
     font-size: 6rem;
     width: 50%;
     margin-top: 6rem;
   }
 
-  &__button-link {
-    width: 20%;
-    margin: auto;
+  &__button {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin: 5rem auto 0;
+    &-link {
+      width: 20rem;
+    }
+  }
+}
+
+.how-it-works {
+  padding: 2rem 2rem;
+  background-image: url("../../assets/image/background-paws-orange-min.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__header {
+    @include large-header;
+    color: $color-primary;
+    text-align: center;
+  }
+}
+
+.circle-card {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background-color: $color-primary;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+    opacity: 0.9;
+  }
+
+  &--left {
+    background-image: url("../../assets/image/circle-pet3-min.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-right: 2rem;
+  }
+
+  &--middle {
+    background-image: url("../../assets/image/circle-pet2-min.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-right: 2rem;
+  }
+  &--right {
+    background-image: url("../../assets/image/circle-pet1-min.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.hidden {
+  &__content {
+    padding: 4rem 2rem;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    text-align: center;
+    border: 10px solid $color-primary;
+    background-color: rgb(255, 255, 255, 0.75);
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+      transition: 0.8s;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $color-primary;
+    @include large-header;
+    margin-bottom: 0.5rem;
+
+    // &--middle {
+    //   color: $color-secondary;
+    // }
+  }
+
+  &__text {
+    text-transform: uppercase;
+    color: $color-text;
+    @include header;
   }
 }
