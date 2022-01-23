@@ -6,7 +6,7 @@
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 55rem;
+  height: 50rem;
   padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
 }
 
 .how-it-works {
-  padding: 2rem 2rem;
+  padding: 4rem 2rem;
   background-image: url("../../assets/image/background-paws-orange-min.jpg");
   background-size: cover;
   background-position: center;
@@ -56,7 +56,6 @@
     display: flex;
     justify-content: center;
     margin: 2rem auto;
-    opacity: 0.9;
   }
 
   &--left {
@@ -87,7 +86,7 @@
     border-radius: 50%;
     text-align: center;
     border: 10px solid $color-primary;
-    background-color: rgb(255, 255, 255, 0.75);
+    background-color: rgb(255, 255, 255, 0.8);
     opacity: 0;
 
     &:hover {
@@ -101,15 +100,68 @@
     color: $color-primary;
     @include large-header;
     margin-bottom: 0.5rem;
-
-    // &--middle {
-    //   color: $color-secondary;
-    // }
   }
 
   &__text {
     text-transform: uppercase;
     color: $color-text;
     @include header;
+  }
+}
+
+.map-search {
+  width: 100%;
+  height: 50rem;
+  background-image: url("../../assets/image/background-paws-grey-light-orange.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+
+  &__header {
+    @include large-header;
+    color: $color-white;
+    text-align: center;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+
+    &-input {
+      height: 4rem;
+      width: 30%;
+      border-radius: 5px;
+      border: 5px solid $color-secondary-light;
+      padding: 1rem;
+      margin-bottom: 2rem;
+
+      &::placeholder {
+        font-size: 1rem;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      &:focus {
+        outline: none;
+        border: 5px solid $color-secondary;
+      }
+    }
+
+    &-button {
+      @include header;
+      padding: 0.5rem;
+      width: 8rem;
+      background-color: $color-secondary;
+      color: $color-white;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 }

@@ -1,13 +1,11 @@
 import React from "react";
 import "./HomePage.scss";
-import Header from "../../components/Header/Header";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
-    <div>
-      <Header />
+    <main>
       <section className="hero">
         <p className="hero__text">We make happy reunion</p>
         <div className="hero__button">
@@ -20,7 +18,7 @@ function HomePage() {
         </div>
       </section>
       <section className="how-it-works">
-        <p className="how-it-works__header">How it Works</p>
+        <h2 className="how-it-works__header">How it Works</h2>
         <div className="circle-card__container">
           <div className="circle-card circle-card--left">
             <div className="hidden__content">
@@ -46,7 +44,18 @@ function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+      <section className="map-search" id="map-search">
+        <h2 className="map-search__header">Enter Your Location</h2>
+        <form className="map-search__form">
+          <input
+            className="map-search__form-input"
+            placeholder="Enter your postal code here"
+          ></input>
+          <button className="map-search__form-button">Submit</button>
+          <div className="map-search__map"></div>
+        </form>
+      </section>
+    </main>
   );
 }
 

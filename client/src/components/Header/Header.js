@@ -35,7 +35,9 @@ function Header() {
           </Link>
           <div className="nav-content">
             <div className="nav-sub">
-              <Link className="nav-content-link">Search by Map</Link>
+              <Link to="#map-search" className="nav-content-link">
+                Search by Map
+              </Link>
               <Link className="nav-content-link">Search by Filter</Link>
             </div>
           </div>

@@ -48,6 +48,7 @@
 @mixin header {
   font-size: 1.5rem;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 @mixin sub-header {
