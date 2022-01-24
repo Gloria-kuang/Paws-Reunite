@@ -14,5 +14,6 @@
 
   &:hover {
     background-color: $color-primary-light;
+    transition: 0.3s all ease-out;
   }
 }
