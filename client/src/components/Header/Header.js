@@ -10,11 +10,15 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      <img src={logo} alt="logo" className="header__logo"></img>
+      <Link to="/">
+        <img src={logo} alt="logo" className="header__logo"></img>
+      </Link>
       <ul className="navbar">
         <li className="navbar__list">
-          <AiFillHome size={25} className="navbar__icon" />
-          Home
+          <Link to="/" className="navbar__text">
+            <AiFillHome size={25} className="navbar__icon" />
+            Home
+          </Link>
         </li>
         <li className="navbar__list">
           <Link className="navbar__text">
@@ -23,8 +27,12 @@ function Header() {
           </Link>
           <div className="nav-content">
             <div className="nav-sub">
-              <Link className="nav-content-link">Report Lost</Link>
-              <Link className="nav-content-link">Report Found</Link>
+              <Link to="/report-pet" className="nav-content-link">
+                Report Lost
+              </Link>
+              <Link to="/report-pet" className="nav-content-link">
+                Report Found
+              </Link>
             </div>
           </div>
         </li>

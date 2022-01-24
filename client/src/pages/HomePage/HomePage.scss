@@ -149,19 +149,5 @@
         border: 5px solid $color-secondary;
       }
     }
-
-    &-button {
-      @include header;
-      padding: 0.5rem;
-      width: 8rem;
-      background-color: $color-secondary;
-      color: $color-white;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
   }
 }

@@ -68,6 +68,7 @@
     &:hover {
       background-color: $color-secondary-light;
       color: $color-primary;
+      transition: 0.3s all ease-out;
     }
     &:focus {
       color: $color-primary;
