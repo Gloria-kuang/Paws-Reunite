@@ -5,8 +5,21 @@ import ReportPetPage from "./pages/ReportPetPage/ReportPetPage";
 import SearchPetPage from "./pages/SearchPetPage/SearchPetPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import { initializeApp } from "firebase/app";
 
 function App() {
+  const firebaseConfig = {
+    apiKey: "AIzaSyDzYYsMVjInpxzvrBj29UeSo0PHLDaIMEI",
+    authDomain: "paws-reunite.firebaseapp.com",
+    projectId: "paws-reunite",
+    storageBucket: "paws-reunite.appspot.com",
+    messagingSenderId: "931422298738",
+    appId: "1:931422298738:web:cee0af40f875fa976618eb",
+    measurementId: "G-KVY9EFYZP8"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
   return (
     <BrowserRouter>
       <Header />

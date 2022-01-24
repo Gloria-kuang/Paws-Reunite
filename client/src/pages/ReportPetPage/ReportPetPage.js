@@ -7,20 +7,19 @@ function ReportPetPage() {
     <main className="report-pet">
       <div className="report-form__container">
         <h2 className="report-form__header">Report A Pet</h2>
-        {/* <p className="report-form__text">Enter the pet's information to </p> */}
         <form className="report-form">
           <div className="report-form__status">
             <p className="report-form__label">Pet Status</p>
-
             <input
               type="radio"
               name="petStatus"
               id="Lost"
               value="Lost"
-              className="report-form__radio-input"
+              className="report-form__radio-input  "
             />
-            <label className="report-form__radio-label">Lost</label>
-
+            <label className="report-form__radio-label report-form__radio-label-tag">
+              Lost
+            </label>
             <input
               type="radio"
               name="petStatus"
@@ -28,14 +27,16 @@ function ReportPetPage() {
               value="Found"
               className="report-form__radio-input"
             />
-            <label className="report-form__radio-label">Found</label>
+            <label className="report-form__radio-label report-form__radio-label-tag">
+              Found
+            </label>
           </div>
           <div className="report-form__sub-container">
             <div className="report-form__label-set">
               <p className="report-form__label">I Lost A </p>
               <input
                 type="radio"
-                name="species"
+                name="type"
                 id="Dog"
                 value="Dog"
                 className="report-form__radio-input"
@@ -44,22 +45,40 @@ function ReportPetPage() {
 
               <input
                 type="radio"
-                name="species"
+                name="type"
                 id="Cat"
                 value="Cat"
                 className="report-form__radio-input"
               />
               <label className="report-form__radio-label">Cat</label>
             </div>
-            <div>
-              <label className="report-form__label report-form__label-set">
-                Breed
-                <input
-                  type="text"
-                  name="breed"
-                  className="report-form__input"
-                />
-              </label>
+            <div className="report-form__label-set">
+              <p className="report-form__label">Sex </p>
+              <input
+                type="radio"
+                name="sex"
+                id="Male"
+                value="Male"
+                className="report-form__radio-input"
+              />
+              <label className="report-form__radio-label">Male</label>
+
+              <input
+                type="radio"
+                name="sex"
+                id="Female"
+                value="Female"
+                className="report-form__radio-input"
+              />
+              <label className="report-form__radio-label">Female</label>
+              <input
+                type="radio"
+                name="sex"
+                id="Unknown"
+                value="Unknown"
+                className="report-form__radio-input"
+              />
+              <label className="report-form__radio-label">Unknown</label>
             </div>
           </div>
           <div className="report-form__sub-container">
@@ -79,7 +98,7 @@ function ReportPetPage() {
           <div className="report-form__sub-container">
             <label className="report-form__label report-form__label-set">
               Contact Email
-              <input type="text" name="email" className="report-form__input" />
+              <input type="email" name="email" className="report-form__input" />
             </label>
             <label className="report-form__label report-form__label-set">
               Lost Date
@@ -88,6 +107,16 @@ function ReportPetPage() {
                 name="date"
                 min="2021-01-01"
                 className="report-form__input"
+              />
+            </label>
+          </div>
+          <div className="report-form__sub-container">
+            <label className="report-form__label report-form__label-set">
+              Description
+              <textarea
+                type="text"
+                name="description"
+                className="report-form__textarea"
               />
             </label>
           </div>
