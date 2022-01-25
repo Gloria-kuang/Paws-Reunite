@@ -3,6 +3,7 @@ import "./ReportCard.scss";
 import testImg from "../../assets/image/circle-pet1-min.jpg";
 import Tag from "../Tag/Tag";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+
 function ReportCard() {
   return (
     <article className="pet-report">

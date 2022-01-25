@@ -4,12 +4,14 @@ import HomePage from "./pages/HomePage/HomePage";
 import ReportPetPage from "./pages/ReportPetPage/ReportPetPage";
 import SearchPetPage from "./pages/SearchPetPage/SearchPetPage";
 import Header from "./components/Header/Header";
+import SearchMap from "./components/SearchMap/SearchMap";
 import Footer from "./components/Footer/Footer";
 import { initializeApp } from "firebase/app";
 
 function App() {
+  // console.log(process.env.REACT_APP_FIREBASE_API_KEY);
   const firebaseConfig = {
-    apiKey: "AIzaSyDzYYsMVjInpxzvrBj29UeSo0PHLDaIMEI",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "paws-reunite.firebaseapp.com",
     projectId: "paws-reunite",
     storageBucket: "paws-reunite.appspot.com",
