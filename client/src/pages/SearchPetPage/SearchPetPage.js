@@ -138,6 +138,8 @@ function SearchPetPage() {
         <h2 className="search-list__header">Lost and Found Pets</h2>
         <div className="search-list__container">
           <ReportCard />
+          <ReportCard />
+          <ReportCard />
         </div>
       </div>
     </main>
