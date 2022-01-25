@@ -1,18 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ReportPetPage.scss";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
+import moment from "moment";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 function ReportPetPage() {
+  const [reportImage, setReportImage] = useState(null);
+
+  const handleSubmitReport = async (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    // error checking
+    const db = getFirestore();
+    const storage = getStorage();
+    const reportImagesRef = ref(
+      storage,
+      `report/${moment().toISOString()}.jpg`
+    );
+
+    await uploadBytes(reportImagesRef, reportImage);
+    const imgPath = await getDownloadURL(reportImagesRef);
+
+    const currentDate = moment().unix();
+
+    const docRef = await addDoc(collection(db, "pet-reports"), {
+      status: e.target.status.value,
+      type: e.target.type.value,
+      sex: e.target.sex.value,
+      name: e.target.name.value,
+      address: e.target.address.value,
+      email: e.target.email.value,
+      date: e.target.date.value,
+      description: e.target.description.value,
+      timestamp: currentDate,
+      image: imgPath
+    });
+  };
+
   return (
     <main className="report-pet">
       <div className="report-form__container">
         <h2 className="report-form__header">Report A Pet</h2>
-        <form className="report-form">
+        <form className="report-form" onSubmit={handleSubmitReport}>
           <div className="report-form__status">
             <p className="report-form__label">Pet Status</p>
             <input
               type="radio"
-              name="petStatus"
+              name="status"
               id="Lost"
               value="Lost"
               className="report-form__radio-input  "
@@ -22,7 +58,7 @@ function ReportPetPage() {
             </label>
             <input
               type="radio"
-              name="petStatus"
+              name="status"
               id="Lost"
               value="Found"
               className="report-form__radio-input"
@@ -120,6 +156,22 @@ function ReportPetPage() {
               />
             </label>
           </div>
+          <div className="report-form__sub-container">
+            <label className="report-form__label report-form__label-set">
+              Image
+              <input
+                type="file"
+                name="image"
+                id="reportImage"
+                onChange={(e) => {
+                  setReportImage(e.target.files[0]);
+                }}
+                // className="report-form__radio-input"
+              />
+            </label>
+          </div>
+          {/* <img src={{ uri: require(reportImage) }} width={100} height={100} /> */}
+
           <div className="report-form__button">
             <SecondaryButton text={"Submit"} />
           </div>

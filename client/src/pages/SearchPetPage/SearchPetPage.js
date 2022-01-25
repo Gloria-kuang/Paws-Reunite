@@ -1,4 +1,5 @@
 import React from "react";
+import ReportCard from "../../components/ReportCard/ReportCard";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import "./SearchPetPage.scss";
 
@@ -135,7 +136,9 @@ function SearchPetPage() {
       </div>
       <div className="search-list">
         <h2 className="search-list__header">Lost and Found Pets</h2>
-        <div className="search-list__container"></div>
+        <div className="search-list__container">
+          <ReportCard />
+        </div>
       </div>
     </main>
   );
