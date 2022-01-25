@@ -1,0 +1,18 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.tag {
+  &--blue {
+    background-color: $color-secondary;
+    width: 6rem;
+    height: 2.5rem;
+    color: $color-white;
+    @include sub-header;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

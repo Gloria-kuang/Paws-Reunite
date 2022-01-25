@@ -3,8 +3,7 @@
 @use "../../styles/mixins" as *;
 
 .report-pet {
-  width: 100%;
-  height: 50rem;
+  width: 100vw;
   background-image: url("../../assets/image/report-form-background.jpg");
   background-size: cover;
   background-position: center;
@@ -16,9 +15,10 @@
   color: $color-text;
 
   &__container {
-    background-color: $color-white;
+    background-image: url("../../assets/image/background-paws-orange-min.jpg");
+    background-size: cover;
+    background-position: center;
     width: 50%;
-    // border: 5px solid $color-secondary;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
     padding: 2rem 3rem;
@@ -36,17 +36,19 @@
     background-color: $color-secondary-light;
     border-radius: 10px;
     margin: 0 auto 0.5rem;
-    width: 40%;
+    width: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   &__label {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 0.5rem 0;
     margin: 0;
     margin-right: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
 
     &-set {
       width: 50%;
@@ -54,9 +56,12 @@
   }
 
   &__radio-label {
-    font-size: 1.5rem;
-    margin-left: 0.5rem;
-    margin-right: 1rem;
+    font-size: 1.3rem;
+    margin: 0 1rem 1rem 0.5rem;
+
+    &-tag {
+      margin-bottom: 0;
+    }
   }
 
   &__sub-container {
@@ -67,8 +72,28 @@
 
   &__input {
     margin-top: 0.5rem;
+    padding: 0.5rem;
     border-radius: 4px;
     width: 20rem;
+
+    &:focus {
+      border: 3px solid $color-secondary;
+      outline: none;
+    }
+  }
+
+  &__textarea {
+    margin-top: 0.5rem;
+    height: 8rem;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 100%;
+    resize: none;
+
+    &:focus {
+      border: 3px solid $color-secondary;
+      outline: none;
+    }
   }
 
   &__button {

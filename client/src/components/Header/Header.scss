@@ -4,7 +4,7 @@
 
 .header {
   width: 100vw;
-  height: 10rem;
+  height: 8rem;
   background-color: $color-primary;
   padding: 1rem 4rem 0rem;
   display: flex;
@@ -12,7 +12,7 @@
 
   &__logo {
     display: block;
-    width: 8rem;
+    width: 6rem;
     padding: 1rem 0;
   }
 
@@ -55,7 +55,7 @@
     position: relative;
     align-items: center;
     width: 30%;
-    height: 50%;
+    height: 60%;
     background-color: $color-secondary;
     border-radius: 10px 10px 0 0;
     color: $color-white;
@@ -103,7 +103,7 @@
 
 .nav-content {
   position: absolute;
-  top: 72px;
+  top: 67px;
   overflow: hidden;
   background-color: $color-secondary-light;
   max-height: 0;
