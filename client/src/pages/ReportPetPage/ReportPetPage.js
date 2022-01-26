@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import "./ReportPetPage.scss";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
 import moment from "moment";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng
+} from "use-places-autocomplete";
 
 function ReportPetPage() {
   const [reportImage, setReportImage] = useState(null);

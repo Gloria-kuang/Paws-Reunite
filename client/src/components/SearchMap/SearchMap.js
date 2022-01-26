@@ -138,7 +138,7 @@ function SearchMap() {
         <div className="map-search__map">
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: process.env.REACT_APP_GOOGLE_API_KEY
+              key: process.env.REACT_APP_FALLBACK_GOOGLE_API_KEY
             }}
             defaultCenter={{
               lat: 43.65,
