@@ -5,7 +5,7 @@ import SecondaryButton from "../SecondaryButton/SecondaryButton";
 import GoogleMapReact from "google-map-react";
 import Flag from "../Flag/Flag";
 import Geocode from "react-geocode";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+// import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 function SearchMap() {
   const [location, setLocation] = useState({
@@ -79,7 +79,7 @@ function SearchMap() {
         <div className="map-search__map">
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyCLR2oBO084nBoCOR7XIE8QXpYvcftEdI8"
+              key: process.env.REACT_APP_GOOGLE_API_KEY
             }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
