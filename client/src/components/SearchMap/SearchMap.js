@@ -4,53 +4,77 @@ import { useState, useEffect } from "react";
 import SecondaryButton from "../SecondaryButton/SecondaryButton";
 import GoogleMapReact from "google-map-react";
 import Flag from "../Flag/Flag";
-import Geocode from "react-geocode";
-// import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import usePlacesAutocomplete, {
+  getGeocode,
+  getLatLng
+} from "use-places-autocomplete";
 
 function SearchMap() {
   const [location, setLocation] = useState({
-    center: {
-      lat: 43.65,
-      lng: -79.38
-    },
-    zoom: 13
+    description: "",
+    lat: 43.65,
+    lng: -79.38
+  });
+  const [zoom, setZoom] = useState(13);
+
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions
+  } = usePlacesAutocomplete({
+    requestOptions: {},
+    debounce: 300
   });
 
-  const defaultProps = {
-    center: {
-      lat: 43.65,
-      lng: -79.38
-    },
-    zoom: 13
-  };
+  const handleSelect =
+    ({ description }) =>
+    () => {
+      setValue(description, false);
+      clearSuggestions();
+      setLocation({
+        ...location,
+        description
+      });
+    };
+
+  const renderSuggestions = () =>
+    data.map((suggestion) => {
+      const {
+        place_id,
+        structured_formatting: { main_text, secondary_text }
+      } = suggestion;
+
+      return (
+        <li
+          key={place_id}
+          onClick={handleSelect(suggestion)}
+          className="map-search__form-suggestions-item"
+        >
+          <strong>{main_text}</strong> <small>{secondary_text}</small>
+        </li>
+      );
+    });
 
   const handleAddressSubmit = (e) => {
     e.preventDefault();
-    const inputAddress = e.target.address.value;
     const zoomIndex = e.target.zoom.value;
-    console.log(zoomIndex);
+    setZoom(Number(zoomIndex));
 
-    // Turn address into lat and lng
-    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-    Geocode.setRegion("ca");
-    Geocode.setLocationType("ROOFTOP");
-    Geocode.fromAddress(inputAddress).then(
-      (response) => {
-        console.log("list", response.results);
-        const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
+    getGeocode({ address: location.description })
+      .then((results) => getLatLng(results[0]))
+      .then(({ lat, lng }) => {
+        console.log("Coordinates: ", { lat, lng });
         setLocation({
-          center: {
-            lat: lat,
-            lng: lng
-          },
-          zoom: Number(zoomIndex)
+          ...location,
+          lat: lat,
+          lng: lng
         });
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
   };
 
   return (
@@ -59,21 +83,56 @@ function SearchMap() {
       <form className="map-search__form" onSubmit={handleAddressSubmit}>
         <input
           className="map-search__form-input"
-          name="address"
-          placeholder="Enter your postal code here"
-        ></input>
-        {/* <div className="auto-complete">
-          <GooglePlacesAutocomplete apiKey={process.env.REACT_APP_GOOGLE_API_KEY} />
-        </div> */}
-        <div>
-          <input type="radio" name="zoom" id="zoom" value="15" />
-          <label>1 km</label>
-          <input type="radio" name="zoom" id="zoom" value="13.5" />
-          <label>3 km</label>
-          <input type="radio" name="zoom" id="zoom" value="12.5" />
-          <label>5 km</label>
-          <input type="radio" name="zoom" id="zoom" value="11.5" />
-          <label>10 km</label>
+          placeholder="Enter your address here"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        {status === "OK" && (
+          <ul className="map-search__form-suggestions">
+            {renderSuggestions()}
+          </ul>
+        )}
+        <div className="map-search__zoom">
+          <div className="map-search__zoom-options">
+            <input
+              type="radio"
+              name="zoom"
+              id="zoom"
+              value="15"
+              className="map-search__zoom-radio"
+            />
+            <label>1 km</label>
+          </div>
+          <div className="map-search__zoom-options">
+            <input
+              type="radio"
+              name="zoom"
+              id="zoom"
+              value="13.5"
+              className="map-search__zoom-radio"
+            />
+            <label>3 km</label>
+          </div>
+          <div className="map-search__zoom-options">
+            <input
+              type="radio"
+              name="zoom"
+              id="zoom"
+              value="12.5"
+              className="map-search__zoom-radio"
+            />
+            <label>5 km</label>
+          </div>
+          <div className="map-search__zoom-options">
+            <input
+              type="radio"
+              name="zoom"
+              id="zoom"
+              value="11.5"
+              className="map-search__zoom-radio"
+            />
+            <label>10 km</label>
+          </div>
         </div>
         <SecondaryButton text={"Submit"} type="submit" />
         <div className="map-search__map">
@@ -81,16 +140,15 @@ function SearchMap() {
             bootstrapURLKeys={{
               key: process.env.REACT_APP_GOOGLE_API_KEY
             }}
-            defaultCenter={defaultProps.center}
-            defaultZoom={defaultProps.zoom}
-            center={location.center}
-            zoom={location.zoom}
+            defaultCenter={{
+              lat: 43.65,
+              lng: -79.38
+            }}
+            defaultZoom={13}
+            center={location}
+            zoom={zoom}
           >
-            <Flag
-              lat={location.center.lat}
-              lng={location.center.lng}
-              text="Here"
-            />
+            <Flag lat={location.lat} lng={location.lng} text="Here" />
           </GoogleMapReact>
         </div>
       </form>
