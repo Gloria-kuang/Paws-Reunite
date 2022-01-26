@@ -1,0 +1,17 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__icon {
+    color: $color-error;
+  }
+
+  &__text {
+    @include sub-header;
+    color: $color-error;
+  }
+}
