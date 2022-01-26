@@ -75,6 +75,7 @@
     padding: 0.5rem;
     border-radius: 4px;
     width: 20rem;
+    font-size: 1rem;
 
     &:focus {
       border: 3px solid $color-secondary;
@@ -101,5 +102,31 @@
     width: 100%;
     justify-content: center;
     margin-top: 2rem;
+  }
+
+  &__address-list {
+    width: 20rem;
+    border: 3px solid $color-secondary;
+    position: absolute;
+    top: 550px;
+    border-top: none;
+    list-style: none;
+    background-color: $color-white;
+  }
+
+  &__address-item {
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    &:hover {
+      background-color: $color-secondary-light;
+    }
+  }
+
+  &__address-text {
+    font-size: 1rem;
+
+    &--small {
+      font-weight: normal;
+    }
   }
 }

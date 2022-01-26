@@ -12,6 +12,47 @@ import usePlacesAutocomplete, {
 function ReportPetPage() {
   const [reportImage, setReportImage] = useState(null);
 
+  const {
+    ready,
+    value,
+    suggestions: { status, data },
+    setValue,
+    clearSuggestions
+  } = usePlacesAutocomplete({
+    requestOptions: {},
+    debounce: 300
+  });
+
+  const handleSelect =
+    ({ description }) =>
+    () => {
+      setValue(description, false);
+      clearSuggestions();
+    };
+
+  const renderSuggestions = () =>
+    data.map((suggestion) => {
+      const {
+        place_id,
+        structured_formatting: { main_text, secondary_text }
+      } = suggestion;
+
+      return (
+        <li
+          key={place_id}
+          onClick={handleSelect(suggestion)}
+          className="report-form__address-item"
+        >
+          <p className="report-form__address-text">
+            {main_text},
+            <span className="report-form__address-text report-form__address-text--small">
+              {secondary_text}
+            </span>
+          </p>
+        </li>
+      );
+    });
+
   const handleSubmitReport = async (e) => {
     e.stopPropagation();
     e.preventDefault();
@@ -128,10 +169,17 @@ function ReportPetPage() {
             <label className="report-form__label report-form__label-set">
               Last Seen Address
               <input
-                type="text"
+                // type="text"
                 name="address"
                 className="report-form__input"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
               />
+              {status === "OK" && (
+                <ul className="report-form__address-list">
+                  {renderSuggestions()}
+                </ul>
+              )}
             </label>
           </div>
           <div className="report-form__sub-container">
