@@ -3,13 +3,14 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPetPage from "./pages/ReportPetPage/ReportPetPage";
 import SearchPetPage from "./pages/SearchPetPage/SearchPetPage";
+import SingleReportPage from "./pages/SingleReportPage/SingleReportPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { initializeApp } from "firebase/app";
 
 function App() {
   const firebaseConfig = {
-    apiKey: "AIzaSyDzYYsMVjInpxzvrBj29UeSo0PHLDaIMEI",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "paws-reunite.firebaseapp.com",
     projectId: "paws-reunite",
     storageBucket: "paws-reunite.appspot.com",
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" exact component={HomePage} />
         <Route path="/report-pet" component={ReportPetPage} />
         <Route path="/search-pet" component={SearchPetPage} />
+        <Route path="/report/:reportId" component={SingleReportPage} />
       </Switch>
       <Footer />
     </BrowserRouter>
