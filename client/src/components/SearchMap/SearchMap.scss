@@ -21,6 +21,7 @@
     flex-direction: column;
     align-items: center;
     margin: 2rem auto;
+    position: relative;
 
     &-input {
       height: 4rem;
@@ -43,14 +44,40 @@
     }
   }
 
+  &__form-suggestions {
+    width: 30%;
+    border: 5px solid $color-secondary;
+    position: absolute;
+    top: 50px;
+    border-top: none;
+    list-style: none;
+    background-color: $color-white;
+
+    &-item {
+      padding: 0.2rem 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-secondary-light;
+      }
+    }
+  }
+
+  &__zoom {
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+
+    &-radio {
+      margin-right: 0.5rem;
+    }
+  }
+
   &__map {
     width: 50rem;
     height: 35rem;
     padding: 1rem;
     margin-top: 1rem;
   }
-}
-
-.auto-complete {
-  width: 60%;
 }
