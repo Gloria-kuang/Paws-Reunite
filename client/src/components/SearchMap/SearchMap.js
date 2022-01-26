@@ -62,9 +62,9 @@ function SearchMap() {
           name="address"
           placeholder="Enter your postal code here"
         ></input>
-        <div className="auto-complete">
-          <GooglePlacesAutocomplete apiKey="AIzaSyCLR2oBO084nBoCOR7XIE8QXpYvcftEdI8" />
-        </div>
+        {/* <div className="auto-complete">
+          <GooglePlacesAutocomplete apiKey={process.env.REACT_APP_GOOGLE_API_KEY} />
+        </div> */}
         <div>
           <input type="radio" name="zoom" id="zoom" value="15" />
           <label>1 km</label>
@@ -85,7 +85,6 @@ function SearchMap() {
             defaultZoom={defaultProps.zoom}
             center={location.center}
             zoom={location.zoom}
-            yesIWantToUseGoogleMapApiInternals
           >
             <Flag
               lat={location.center.lat}
