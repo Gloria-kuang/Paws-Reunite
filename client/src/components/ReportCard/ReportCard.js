@@ -4,7 +4,7 @@ import Tag from "../Tag/Tag";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import moment from "moment";
 
-function ReportCard({ reportId, reportData, setModalShow, onViewClick }) {
+function ReportCard({ reportId, reportData, onViewClick }) {
   return (
     <article className="pet-report">
       <img src={reportData.image} alt="pet" className="pet-report__image"></img>
