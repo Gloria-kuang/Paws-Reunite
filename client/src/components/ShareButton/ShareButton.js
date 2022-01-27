@@ -9,7 +9,7 @@ function ShareButton() {
       quote={"Please help to find this pet!"}
       hashtag="#lostpets"
     >
-      <FacebookIcon size={36} />
+      <FacebookIcon size={36} className="share-button" />
     </FacebookShareButton>
   );
 }

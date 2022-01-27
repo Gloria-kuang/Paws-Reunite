@@ -61,7 +61,6 @@ function SearchPetPage() {
                 <ReportCard
                   reportData={report.reportData}
                   reportId={report.reportId}
-                  // setModalShow={setModalShow}
                   onViewClick={() => {
                     setModalData(report.reportData);
                     setModalShow(true);
