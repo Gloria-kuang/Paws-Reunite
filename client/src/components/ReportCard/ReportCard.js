@@ -5,7 +5,6 @@ import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import moment from "moment";
 
 function ReportCard({ reportId, reportData }) {
-  console.log(moment(reportData.date).fromNow());
   return (
     <article className="pet-report">
       <img src={reportData.image} alt="pet" className="pet-report__image"></img>
