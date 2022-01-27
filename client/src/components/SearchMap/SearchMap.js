@@ -26,6 +26,7 @@ function SearchMap() {
   });
   const [zoom, setZoom] = useState(13);
   const [reportList, setReportList] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
@@ -112,9 +113,9 @@ function SearchMap() {
     <section className="map-search" id="map-search">
       {modalData && (
         <ReportCardModal
-        // modalData={modalData}
-        // show={modalShow}
-        // onHide={() => setModalShow(false)}
+          modalData={modalData}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
         />
       )}
       <h2 className="map-search__header">Enter Your Location</h2>
@@ -194,6 +195,10 @@ function SearchMap() {
                   lng={report.reportData.lng}
                   image={report.reportData.image}
                   status={report.reportData.status}
+                  onViewClick={() => {
+                    setModalData(report.reportData);
+                    setModalShow(true);
+                  }}
                 />
               );
             })}
