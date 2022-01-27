@@ -9,7 +9,6 @@ function SearchPetPage() {
 
   useEffect(() => {
     getData();
-    setReportList({ reportList });
   }, []);
 
   const db = getFirestore();
@@ -20,17 +19,14 @@ function SearchPetPage() {
       const reportData = doc.data();
       return { reportId, reportData };
     });
-    console.log("reposrList", reportList);
+    setReportList(reportList);
   };
 
   if (reportList === null) {
     return (
       <main className="search-page">
         <Filter />
-        <div className="search-list">
-          <h2 className="search-list__header">Lost and Found Pets</h2>
-          <div className="search-list__container">loading...</div>
-        </div>
+        <div className="search-list">loading...</div>
       </main>
     );
   }
@@ -40,7 +36,14 @@ function SearchPetPage() {
       <div className="search-list">
         <h2 className="search-list__header">Lost and Found Pets</h2>
         <div className="search-list__container">
-          <ReportCard reportList={reportList} />
+          {reportList.map((report) => {
+            return (
+              <ReportCard
+                reportData={report.reportData}
+                reportId={report.reportId}
+              />
+            );
+          })}
         </div>
       </div>
     </main>

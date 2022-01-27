@@ -1,23 +1,26 @@
 import React from "react";
 import "./ReportCard.scss";
-import testImg from "../../assets/image/circle-pet1-min.jpg";
 import Tag from "../Tag/Tag";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import moment from "moment";
 
-function ReportCard() {
+function ReportCard({ reportId, reportData }) {
+  console.log(moment(reportData.date).fromNow());
   return (
     <article className="pet-report">
-      <img src={testImg} alt="pet" className="pet-report__image"></img>
+      <img src={reportData.image} alt="pet" className="pet-report__image"></img>
       <div className="pet-report__content">
         <div className="pet-report__headline">
           <p>
-            "Mango" <span>female </span> dog
+            "{reportData.name}" <span>{reportData.sex} </span> {reportData.type}
           </p>
-          <p className="pet-report__date">1 month ago</p>
+          <p className="pet-report__date">
+            {moment(reportData.date).fromNow()}
+          </p>
         </div>
-        <Tag text={"Lost"} />
+        <Tag text={reportData.status} />
         <div className="pet-report__address-line">
-          <p className="pet-report__address">North York, ON, M2L 1V4</p>
+          <p className="pet-report__address">{reportData.address}</p>
           <div className="pet-report__button-container">
             <PrimaryButton text={"View"} />
           </div>
