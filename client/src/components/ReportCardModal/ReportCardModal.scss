@@ -3,9 +3,9 @@
 @use "../../styles/mixins" as *;
 
 .modal {
+  color: $color-text;
   &__header {
     @include header;
-    color: $color-secondary;
   }
 
   &__container {

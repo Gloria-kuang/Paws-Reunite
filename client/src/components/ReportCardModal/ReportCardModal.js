@@ -3,46 +3,47 @@ import "./ReportCardModal.scss";
 import Modal from "react-bootstrap/Modal";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import Tag from "../Tag/Tag";
-import testImg from "../../assets/image/circle-pet1-min.jpg";
 import AlternateButton from "../AlternateButton/AlternateButton";
 
-function ReportCardModal(props) {
+function ReportCardModal({ show, modalData, onHide }) {
   return (
     <Modal
-      {...props}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      show={show}
+      onHide={onHide}
     >
       <Modal.Header closeButton>
         <Modal.Title
           id="contained-modal-title-vcenter"
           className="modal__header"
         >
-          Lost Pet Report
+          {modalData.status} Pet Report
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="modal__container">
         <div className="modal__report">
           <div className="modal__first-line">
             <h4 className="modal__name">
-              <strong>"Duncun" </strong> <small>Male Dog</small>
+              <strong>"{modalData.name}" </strong>
+              <small>
+                {modalData.sex} {modalData.type}
+              </small>
             </h4>
-            <Tag text={"Lost"}></Tag>
+            <Tag text={modalData.status}></Tag>
           </div>
           <p>
-            <strong>Lost Date :</strong> 2022-01-22
+            <strong>{modalData.status} Date :</strong> {modalData.date}
           </p>
           <p>
-            <strong>Last Seen Address :</strong> 144 Memon Place, Markham, ON
+            <strong>Last Seen Address :</strong> {modalData.address}
           </p>
           <p>
-            <strong>Description :</strong> 5 years old male Corgi named Duncun
-            was lost. Was wearing a black collar and no chip. He's super
-            friendly to people.
+            <strong>Description :</strong> {modalData.description}
           </p>
         </div>
-        <img src={testImg} alt="dog" className="modal__image"></img>
+        <img src={modalData.image} alt="pet" className="modal__image"></img>
       </Modal.Body>
       <Modal.Footer className="modal__footer">
         <div className="modal__button">

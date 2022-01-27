@@ -1,8 +1,12 @@
 import React from "react";
 import "./PrimaryButton.scss";
 
-function PrimaryButton({ text }) {
-  return <button className="primary-button">{text}</button>;
+function PrimaryButton({ text, onViewClick }) {
+  return (
+    <button className="primary-button" onClick={() => onViewClick()}>
+      {text}
+    </button>
+  );
 }
 
 export default PrimaryButton;

@@ -4,7 +4,7 @@ import Tag from "../Tag/Tag";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import moment from "moment";
 
-function ReportCard({ reportId, reportData }) {
+function ReportCard({ reportId, reportData, setModalShow, onViewClick }) {
   return (
     <article className="pet-report">
       <img src={reportData.image} alt="pet" className="pet-report__image"></img>
@@ -21,7 +21,7 @@ function ReportCard({ reportId, reportData }) {
         <div className="pet-report__address-line">
           <p className="pet-report__address">{reportData.address}</p>
           <div className="pet-report__button-container">
-            <PrimaryButton text={"View"} />
+            <PrimaryButton text={"View"} onViewClick={onViewClick} />
           </div>
         </div>
       </div>

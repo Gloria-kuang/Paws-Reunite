@@ -9,16 +9,16 @@ import {
   query,
   orderBy
 } from "firebase/firestore";
-import Button from "react-bootstrap/Button";
 import ReportCardModal from "../../components/ReportCardModal/ReportCardModal";
 
 function SearchPetPage() {
   const [reportList, setReportList] = useState(null);
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   //get report data from firebase
   const db = getFirestore();
@@ -44,11 +44,14 @@ function SearchPetPage() {
   }
   return (
     <div>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
-      </Button>
       <main className="search-page">
-        <ReportCardModal show={modalShow} onHide={() => setModalShow(false)} />
+        {modalData && (
+          <ReportCardModal
+            modalData={modalData}
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+        )}
         <Filter />
         <div className="search-list">
           <h2 className="search-list__header">Lost and Found Pets</h2>
@@ -58,6 +61,11 @@ function SearchPetPage() {
                 <ReportCard
                   reportData={report.reportData}
                   reportId={report.reportId}
+                  // setModalShow={setModalShow}
+                  onViewClick={() => {
+                    setModalData(report.reportData);
+                    setModalShow(true);
+                  }}
                 />
               );
             })}
