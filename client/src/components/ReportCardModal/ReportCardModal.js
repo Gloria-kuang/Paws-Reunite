@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import Tag from "../Tag/Tag";
 import AlternateButton from "../AlternateButton/AlternateButton";
+import ShareButton from "../ShareButton/ShareButton";
 
 function ReportCardModal({ show, modalData, onHide }) {
   return (
@@ -53,6 +54,7 @@ function ReportCardModal({ show, modalData, onHide }) {
         <div className="modal__button">
           <PrimaryButton text={"Share"} />
         </div>
+        <ShareButton />
       </Modal.Footer>
     </Modal>
   );
