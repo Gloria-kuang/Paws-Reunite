@@ -1,0 +1,44 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.modal {
+  &__header {
+    @include header;
+    color: $color-secondary;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__first-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+  }
+
+  &__image {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    width: 10rem;
+    height: 3.5rem;
+
+    &--light {
+      background-color: $color-secondary;
+    }
+  }
+}
