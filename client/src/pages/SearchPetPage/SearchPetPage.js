@@ -2,8 +2,23 @@ import React from "react";
 import ReportCard from "../../components/ReportCard/ReportCard";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import "./SearchPetPage.scss";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 function SearchPetPage() {
+  const db = getFirestore();
+  const getData = async () => {
+    const querySnapshot = await getDocs(collection(db, "pet-reports"));
+
+    const reposrList = querySnapshot.docs.map((doc) => {
+      const reportId = doc.id;
+      const reportData = doc.data();
+      return { reportId, reportData };
+    });
+
+    console.log("reposrList", reposrList);
+  };
+  getData();
+
   return (
     <main className="search-page">
       <div className="search-filter">

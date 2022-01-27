@@ -69,18 +69,27 @@ function ReportPetPage() {
 
     const currentDate = moment().unix();
 
-    const docRef = await addDoc(collection(db, "pet-reports"), {
-      status: e.target.status.value,
-      type: e.target.type.value,
-      sex: e.target.sex.value,
-      name: e.target.name.value,
-      address: e.target.address.value,
-      email: e.target.email.value,
-      date: e.target.date.value,
-      description: e.target.description.value,
-      timestamp: currentDate,
-      image: imgPath
-    });
+    getGeocode({ address: e.target.address.value })
+      .then((results) => getLatLng(results[0]))
+      .then(async ({ lat, lng }) => {
+        const docRef = await addDoc(collection(db, "pet-reports"), {
+          status: e.target.status.value,
+          type: e.target.type.value,
+          sex: e.target.sex.value,
+          name: e.target.name.value,
+          address: e.target.address.value,
+          email: e.target.email.value,
+          date: e.target.date.value,
+          description: e.target.description.value,
+          timestamp: currentDate,
+          image: imgPath,
+          lat: lat,
+          lng: lng
+        });
+      })
+      .catch((error) => {
+        console.log("Error: ", error);
+      });
   };
 
   return (
