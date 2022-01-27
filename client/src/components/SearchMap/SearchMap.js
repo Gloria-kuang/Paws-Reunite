@@ -65,7 +65,6 @@ function SearchMap() {
     getGeocode({ address: location.description })
       .then((results) => getLatLng(results[0]))
       .then(({ lat, lng }) => {
-        console.log("Coordinates: ", { lat, lng });
         setLocation({
           ...location,
           lat: lat,
