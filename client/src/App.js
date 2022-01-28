@@ -26,7 +26,8 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/report-pet" component={ReportPetPage} />
+        <Route path="/report-pet/lost" component={ReportPetPage} />
+        <Route path="/report-pet/found" component={ReportPetPage} />
         <Route path="/search-pet" component={SearchPetPage} />
         <Route path="/report/:reportId" component={SingleReportPage} />
       </Switch>

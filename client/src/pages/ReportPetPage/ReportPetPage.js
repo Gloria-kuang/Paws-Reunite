@@ -9,9 +9,9 @@ import usePlacesAutocomplete, {
   getLatLng
 } from "use-places-autocomplete";
 
-function ReportPetPage() {
+function ReportPetPage(props) {
   const [reportImage, setReportImage] = useState(null);
-
+  const pathname = props.history.location.pathname;
   const {
     ready,
     value,
@@ -104,7 +104,8 @@ function ReportPetPage() {
               name="status"
               id="Lost"
               value="Lost"
-              className="report-form__radio-input  "
+              className="report-form__radio-input"
+              defaultChecked={pathname.includes("lost")}
             />
             <label className="report-form__radio-label report-form__radio-label-tag">
               Lost
@@ -115,6 +116,7 @@ function ReportPetPage() {
               id="Lost"
               value="Found"
               className="report-form__radio-input"
+              defaultChecked={pathname.includes("found")}
             />
             <label className="report-form__radio-label report-form__radio-label-tag">
               Found

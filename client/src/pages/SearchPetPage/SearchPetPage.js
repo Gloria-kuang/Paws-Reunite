@@ -7,14 +7,17 @@ import {
   getDocs,
   getFirestore,
   query,
-  orderBy
+  orderBy,
+  where
 } from "firebase/firestore";
 import ReportCardModal from "../../components/ReportCardModal/ReportCardModal";
 
 function SearchPetPage() {
   const [reportList, setReportList] = useState(null);
+  const [displayList, setDisplayList] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(null);
+  // Filter
 
   useEffect(() => {
     getData();
@@ -22,6 +25,7 @@ function SearchPetPage() {
 
   //get report data from firebase
   const db = getFirestore();
+
   const getData = async () => {
     const q = query(collection(db, "pet-reports"), orderBy("date"));
     const querySnapshot = await getDocs(q);
@@ -32,9 +36,46 @@ function SearchPetPage() {
     });
     const reportList = reportListOld.reverse();
     setReportList(reportList);
+    setDisplayList(reportList);
   };
 
-  if (reportList === null) {
+  const getFilterData = async (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    // const q = query(
+    //   collection(db, "pet-reports"),
+    //   where("status", "==", e.target.status.value),
+    //   where("type", "==", e.target.type.value),
+    //   where("sex", "==", e.target.sex.value)
+    // );
+    // const querySnapshot = await getDocs(q);
+    // const reportListOld = querySnapshot.docs.map((doc) => {
+    //   const reportId = doc.id;
+    //   const reportData = doc.data();
+    //   return { reportId, reportData };
+    // });
+    // const reportList = reportListOld.reverse();
+    let temp = [...reportList];
+    if (e.target.status.value !== "All") {
+      temp = temp.filter(
+        (report) => report.reportData.status === e.target.status.value
+      );
+    }
+    if (e.target.type.value !== "All") {
+      temp = temp.filter(
+        (report) => report.reportData.type === e.target.type.value
+      );
+    }
+    if (e.target.sex.value !== "All") {
+      temp = temp.filter(
+        (report) => report.reportData.sex === e.target.sex.value
+      );
+    }
+
+    setDisplayList(temp);
+  };
+
+  if (displayList === null) {
     return (
       <main className="search-page">
         <Filter />
@@ -52,11 +93,11 @@ function SearchPetPage() {
             onHide={() => setModalShow(false)}
           />
         )}
-        <Filter />
+        <Filter getFilterData={getFilterData} />
         <div className="search-list">
           <h2 className="search-list__header">Lost and Found Pets</h2>
           <div className="search-list__container">
-            {reportList.map((report) => {
+            {displayList.map((report) => {
               return (
                 <ReportCard
                   reportData={report.reportData}

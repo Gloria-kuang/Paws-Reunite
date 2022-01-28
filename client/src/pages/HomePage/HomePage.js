@@ -10,10 +10,10 @@ function HomePage() {
       <section className="hero">
         <p className="hero__text">We make happy reunion</p>
         <div className="hero__button">
-          <Link to="/report-pet" className="hero__button-link">
+          <Link to="/report-pet/lost" className="hero__button-link">
             <PrimaryButton text={"I Lost A Pet"} />
           </Link>
-          <Link to="/report-pet" className="hero__button-link">
+          <Link to="/report-pet/found" className="hero__button-link">
             <PrimaryButton text={"I Found A Pet"} />
           </Link>
         </div>
