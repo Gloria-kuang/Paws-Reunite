@@ -2,12 +2,20 @@ import React from "react";
 import SecondaryButton from "../SecondaryButton/SecondaryButton";
 import "./Filter.scss";
 
-function Filter() {
+function Filter({ getFilterData }) {
   return (
     <div className="search-filter">
-      <form className="search-filter__form">
+      <form className="search-filter__form" onSubmit={getFilterData}>
         <div>
           <h3 className="search-filter__label">Status</h3>
+          <input
+            type="radio"
+            name="status"
+            id="All"
+            value="All"
+            className="search-filter__radio-input"
+          />
+          <label className="search-filter__radio-label">All</label>
           <input
             type="radio"
             name="status"
@@ -28,6 +36,14 @@ function Filter() {
         </div>
         <div>
           <h3 className="search-filter__label">Type</h3>
+          <input
+            type="radio"
+            name="type"
+            id="All"
+            value="All"
+            className="search-filter__radio-input"
+          />
+          <label className="search-filter__radio-label">All</label>
           <input
             type="radio"
             name="type"
@@ -93,16 +109,24 @@ function Filter() {
             <input
               type="radio"
               name="date"
-              id="1-month"
-              value="1-month"
+              id="All"
+              value="All"
+              className="search-filter__radio-input"
+            />
+            <label className="search-filter__radio-label">Any</label>
+            <input
+              type="radio"
+              name="date"
+              id="30"
+              value="30"
               className="search-filter__radio-input"
             />
             <label className="search-filter__radio-label">1 Month</label>
             <input
               type="radio"
               name="date"
-              id="3-months"
-              value="3-months"
+              id="90"
+              value="90"
               className="search-filter__radio-input"
             />
             <label className="search-filter__radio-label">3 Months</label>
@@ -111,8 +135,8 @@ function Filter() {
             <input
               type="radio"
               name="date"
-              id="6-months"
-              value="6-months"
+              id="180"
+              value="180"
               className="search-filter__radio-input"
             />
 
@@ -120,15 +144,23 @@ function Filter() {
             <input
               type="radio"
               name="date"
-              id="1-year"
-              value="1-year"
+              id="365"
+              value="365"
               className="search-filter__radio-input"
             />
             <label className="search-filter__radio-label">1 Year</label>
+            <input
+              type="radio"
+              name="date"
+              id="366"
+              value="366"
+              className="search-filter__radio-input"
+            />
+            <label className="search-filter__radio-label">over 1 Year</label>
           </div>
         </div>
         <div className="search-filter__button-container">
-          <SecondaryButton text={"Find"} />
+          <SecondaryButton text={"Find"} onClick={(e) => getFilterData(e)} />
         </div>
       </form>
     </div>

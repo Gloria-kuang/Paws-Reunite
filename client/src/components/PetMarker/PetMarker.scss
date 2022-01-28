@@ -1,0 +1,29 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+
+.marker {
+  &--lost {
+    width: 5rem;
+    height: 5rem;
+    size: cover;
+    border-radius: 50%;
+    border: 5px solid $color-secondary;
+
+    &:hover {
+      transform: scale(1.5);
+      transition: 0.3s;
+    }
+  }
+
+  &--found {
+    width: 5rem;
+    height: 5rem;
+    size: cover;
+    border-radius: 50%;
+    border: 5px solid $color-primary;
+    &:hover {
+      transform: scale(1.5);
+      transition: 0.3s;
+    }
+  }
+}

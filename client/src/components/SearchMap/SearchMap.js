@@ -8,6 +8,15 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng
 } from "use-places-autocomplete";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  orderBy
+} from "firebase/firestore";
+import PetMarker from "../PetMarker/PetMarker";
+import ReportCardModal from "../ReportCardModal/ReportCardModal";
 
 function SearchMap() {
   const [location, setLocation] = useState({
@@ -15,7 +24,28 @@ function SearchMap() {
     lat: 43.65,
     lng: -79.38
   });
-  const [zoom, setZoom] = useState(13);
+  const [zoom, setZoom] = useState(13.5);
+  const [reportList, setReportList] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+  const [modalData, setModalData] = useState(null);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  //get report data from firebase
+  const db = getFirestore();
+  const getData = async () => {
+    const q = query(collection(db, "pet-reports"), orderBy("date"));
+    const querySnapshot = await getDocs(q);
+    const reportListOld = querySnapshot.docs.map((doc) => {
+      const reportId = doc.id;
+      const reportData = doc.data();
+      return { reportId, reportData };
+    });
+    const reportList = reportListOld.reverse();
+    setReportList(reportList);
+  };
 
   const {
     ready,
@@ -76,8 +106,18 @@ function SearchMap() {
       });
   };
 
+  if (reportList === null) {
+    return <p>loading...</p>;
+  }
   return (
     <section className="map-search" id="map-search">
+      {modalData && (
+        <ReportCardModal
+          modalData={modalData}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
+      )}
       <h2 className="map-search__header">Enter Your Location</h2>
       <form className="map-search__form" onSubmit={handleAddressSubmit}>
         <input
@@ -148,6 +188,20 @@ function SearchMap() {
             zoom={zoom}
           >
             <Flag lat={location.lat} lng={location.lng} text="Here" />
+            {reportList.map((report) => {
+              return (
+                <PetMarker
+                  lat={report.reportData.lat}
+                  lng={report.reportData.lng}
+                  image={report.reportData.image}
+                  status={report.reportData.status}
+                  onViewClick={() => {
+                    setModalData(report.reportData);
+                    setModalShow(true);
+                  }}
+                />
+              );
+            })}
           </GoogleMapReact>
         </div>
       </form>
