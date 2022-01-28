@@ -7,7 +7,12 @@
     height: 5rem;
     size: cover;
     border-radius: 50%;
-    border: 5px solid $color-error;
+    border: 5px solid $color-secondary;
+
+    &:hover {
+      transform: scale(1.5);
+      transition: 0.3s;
+    }
   }
 
   &--found {
@@ -15,6 +20,10 @@
     height: 5rem;
     size: cover;
     border-radius: 50%;
-    border: 5px solid $color-pass;
+    border: 5px solid $color-primary;
+    &:hover {
+      transform: scale(1.5);
+      transition: 0.3s;
+    }
   }
 }

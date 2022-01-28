@@ -109,16 +109,24 @@ function Filter({ getFilterData }) {
             <input
               type="radio"
               name="date"
-              id="1-month"
-              value="1-month"
+              id="All"
+              value="All"
+              className="search-filter__radio-input"
+            />
+            <label className="search-filter__radio-label">Any</label>
+            <input
+              type="radio"
+              name="date"
+              id="30"
+              value="30"
               className="search-filter__radio-input"
             />
             <label className="search-filter__radio-label">1 Month</label>
             <input
               type="radio"
               name="date"
-              id="3-months"
-              value="3"
+              id="90"
+              value="90"
               className="search-filter__radio-input"
             />
             <label className="search-filter__radio-label">3 Months</label>
@@ -127,8 +135,8 @@ function Filter({ getFilterData }) {
             <input
               type="radio"
               name="date"
-              id="6-months"
-              value="6"
+              id="180"
+              value="180"
               className="search-filter__radio-input"
             />
 
@@ -136,13 +144,19 @@ function Filter({ getFilterData }) {
             <input
               type="radio"
               name="date"
-              id="12"
-              value="1-year"
+              id="365"
+              value="365"
               className="search-filter__radio-input"
             />
-            <label className="search-filter__radio-label">
-              more than 1 Year
-            </label>
+            <label className="search-filter__radio-label">1 Year</label>
+            <input
+              type="radio"
+              name="date"
+              id="366"
+              value="366"
+              className="search-filter__radio-input"
+            />
+            <label className="search-filter__radio-label">over 1 Year</label>
           </div>
         </div>
         <div className="search-filter__button-container">

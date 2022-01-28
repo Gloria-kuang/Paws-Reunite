@@ -11,13 +11,13 @@ import {
   where
 } from "firebase/firestore";
 import ReportCardModal from "../../components/ReportCardModal/ReportCardModal";
+import moment from "moment";
 
 function SearchPetPage() {
   const [reportList, setReportList] = useState(null);
   const [displayList, setDisplayList] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(null);
-  // Filter
 
   useEffect(() => {
     getData();
@@ -55,6 +55,7 @@ function SearchPetPage() {
     //   return { reportId, reportData };
     // });
     // const reportList = reportListOld.reverse();
+
     let temp = [...reportList];
     if (e.target.status.value !== "All") {
       temp = temp.filter(
@@ -70,6 +71,13 @@ function SearchPetPage() {
       temp = temp.filter(
         (report) => report.reportData.sex === e.target.sex.value
       );
+    }
+    if (e.target.date.value !== "All") {
+      temp = temp.filter((report) => {
+        const reportDate = moment(report.reportData.date);
+        const timeDiff = Number(e.target.date.value);
+        return moment().diff(reportDate, "days") <= timeDiff;
+      });
     }
 
     setDisplayList(temp);

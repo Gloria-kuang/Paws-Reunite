@@ -24,7 +24,7 @@ function SearchMap() {
     lat: 43.65,
     lng: -79.38
   });
-  const [zoom, setZoom] = useState(13);
+  const [zoom, setZoom] = useState(13.5);
   const [reportList, setReportList] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(null);
