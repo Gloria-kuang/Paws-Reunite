@@ -18,7 +18,7 @@ function HomePage() {
           </Link>
         </div>
       </section>
-      <section className="how-it-works">
+      <section className="how-it-works" id="how-it-works">
         <h2 className="how-it-works__header">How it Works</h2>
         <div className="circle-card__container">
           <div className="circle-card circle-card--left">
@@ -45,7 +45,9 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <SearchMap />
+      <section id="map-search">
+        <SearchMap />
+      </section>
     </main>
   );
 }
