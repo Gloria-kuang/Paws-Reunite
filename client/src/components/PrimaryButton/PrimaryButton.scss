@@ -8,9 +8,18 @@
   border: none;
   width: 80%;
   height: 100%;
+  font-size: 1rem;
   text-transform: uppercase;
   color: $color-white;
-  @include header;
+
+  @include tablet {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
+
+  @include desktop {
+    @include header;
+  }
 
   &:hover {
     background-color: $color-primary-light;

@@ -131,14 +131,14 @@
 }
 
 .mobile-submenu {
-  width: 12rem;
+  width: 10rem;
   position: absolute;
   list-style: none;
   text-align: start;
   top: 88px;
-  left: 70%;
+  left: 55%;
   transition: 0.3s;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   animation: growDown 400ms ease-in-out forwards;
 
   &--hide {
