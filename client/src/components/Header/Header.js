@@ -6,11 +6,13 @@ import { GiMagnifyingGlass } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Header() {
   const [homeDropdown, setHomeDropdown] = useState(false);
   const [reportDropdown, setReportDropdown] = useState(false);
   const [searchDropdown, setSearchDropdown] = useState(false);
+  const [allDropdown, setAllDropdown] = useState(false);
 
   return (
     <>
@@ -18,6 +20,49 @@ function Header() {
         <Link to="/" className="navbar-logo">
           <img src={logo} alt="logo" className="navbar-logo__image"></img>
         </Link>
+        <div
+          className="navbar-hamburger__container"
+          onMouseEnter={() => {
+            setAllDropdown(true);
+          }}
+          // onMouseLeave={() => setAllDropdown(false)}
+        >
+          <GiHamburgerMenu size={35} className="navbar-hamburger" />
+        </div>
+        {allDropdown && (
+          <ul
+            className={allDropdown ? "mobile-submenu" : "mobile-submenu--hide"}
+            onClick={() => setAllDropdown(!allDropdown)}
+            onMouseLeave={() => setAllDropdown(false)}
+          >
+            <li className="mobile-submenu__item">
+              <a href="#how-it-works" className="mobile-submenu__link">
+                How it works
+              </a>
+            </li>
+            <li className="mobile-submenu__item">
+              <Link to="/report-pet/lost" className="mobile-submenu__link">
+                Report Lost
+              </Link>
+            </li>
+            <li className="mobile-submenu__item">
+              <Link to="/report-pet/found" className="mobile-submenu__link">
+                Report Found
+              </Link>
+            </li>
+            <li className="mobile-submenu__item">
+              <a href="#map-search" className="mobile-submenu__link">
+                Search by Map
+              </a>
+            </li>
+            <li className="mobile-submenu__item">
+              <Link to="/search-pet" className="mobile-submenu__link">
+                Pet Reports List
+              </Link>
+            </li>
+          </ul>
+        )}
+
         <ul className="nav-items">
           <li
             className="nav-item"
@@ -103,7 +148,7 @@ function Header() {
                     className="submenu__link"
                     onClick={() => setSearchDropdown(false)}
                   >
-                    Pet Report Lists
+                    Pet Reports List
                   </Link>
                 </li>
               </ul>
@@ -113,55 +158,6 @@ function Header() {
       </nav>
     </>
   );
-
-  //   <header className="header">
-  //     <Link to="/">
-  //       <img src={logo} alt="logo" className="header__logo"></img>
-  //     </Link>
-  //     <ul className="navbar">
-  //       <li className="navbar__list">
-  //         <Link to="/" className="navbar__text">
-  //           <AiFillHome size={25} className="navbar__icon" />
-  //           Home
-  //         </Link>
-  //       </li>
-  //       <li className="navbar__list">
-  //         <Link className="navbar__text">
-  //           <GiMagnifyingGlass size={30} className="navbar__icon" />
-  //           Lost & Found
-  //         </Link>
-  //         <div className="nav-content">
-  //           <div className="nav-sub">
-  //             <Link to="/report-pet" className="nav-content-link">
-  //               Report Lost
-  //             </Link>
-  //             <Link to="/report-pet" className="nav-content-link">
-  //               Report Found
-  //             </Link>
-  //           </div>
-  //         </div>
-  //       </li>
-  //       <li className="navbar__list">
-  //         <Link className="navbar__text">
-  //           <FaMapMarkerAlt size={20} className="navbar__icon" />
-  //           Search
-  //         </Link>
-  //         <div className="nav-content">
-  //           <div className="nav-sub">
-  //             <Link to="#map-search" className="nav-content-link">
-  //               Search by Map
-  //             </Link>
-  //             <Link className="nav-content-link">Search by Filter</Link>
-  //           </div>
-  //         </div>
-  //       </li>
-  //     </ul>
-  //     <div className="header__user">
-  //       <p className="header__user-signin">Sign In</p>
-  //       <BiUserCircle size={50} className="header__user-logo" />
-  //     </div>
-  //   </header>
-  // );
 }
 
 export default Header;
