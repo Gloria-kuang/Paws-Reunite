@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ReportPetPage from "./pages/ReportPetPage/ReportPetPage";
 import SearchPetPage from "./pages/SearchPetPage/SearchPetPage";
 import SingleReportPage from "./pages/SingleReportPage/SingleReportPage";
+import HowItWorks from "./components/HowItWorks/HowItWorks";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { initializeApp } from "firebase/app";
@@ -26,6 +27,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={HomePage} />
+        <Route path="/how-it-works" component={HowItWorks} />
         <Route path="/report-pet/lost" component={ReportPetPage} />
         <Route path="/report-pet/found" component={ReportPetPage} />
         <Route path="/search-pet" component={SearchPetPage} />

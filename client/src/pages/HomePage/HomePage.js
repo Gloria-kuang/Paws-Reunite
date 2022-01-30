@@ -3,6 +3,7 @@ import "./HomePage.scss";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
 import SearchMap from "../../components/SearchMap/SearchMap";
+import HowItWorks from "../../components/HowItWorks/HowItWorks";
 
 function HomePage() {
   return (
@@ -18,7 +19,8 @@ function HomePage() {
           </Link>
         </div>
       </section>
-      <section className="how-it-works" id="how-it-works">
+      <HowItWorks />
+      {/* <section className="how-it-works" id="how-it-works">
         <h2 className="how-it-works__header">How it Works</h2>
         <div className="circle-card__container">
           <div className="circle-card circle-card--left">
@@ -44,7 +46,7 @@ function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section id="map-search">
         <SearchMap />
       </section>

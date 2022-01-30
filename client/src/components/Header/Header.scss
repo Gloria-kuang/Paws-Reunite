@@ -31,6 +31,10 @@
   @include tablet {
     display: none;
   }
+
+  &:hover {
+    color: $color-secondary;
+  }
 }
 .navbar-logo {
   text-decoration: none;

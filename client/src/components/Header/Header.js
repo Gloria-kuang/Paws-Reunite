@@ -25,7 +25,6 @@ function Header() {
           onMouseEnter={() => {
             setAllDropdown(true);
           }}
-          // onMouseLeave={() => setAllDropdown(false)}
         >
           <GiHamburgerMenu size={35} className="navbar-hamburger" />
         </div>
@@ -36,9 +35,9 @@ function Header() {
             onMouseLeave={() => setAllDropdown(false)}
           >
             <li className="mobile-submenu__item">
-              <a href="/" className="mobile-submenu__link">
+              <Link href="/how-it-works" className="mobile-submenu__link">
                 How it works
-              </a>
+              </Link>
             </li>
             <li className="mobile-submenu__item">
               <Link to="/report-pet/lost" className="mobile-submenu__link">
