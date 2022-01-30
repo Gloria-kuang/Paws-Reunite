@@ -36,7 +36,7 @@ function Header() {
             onMouseLeave={() => setAllDropdown(false)}
           >
             <li className="mobile-submenu__item">
-              <a href="#how-it-works" className="mobile-submenu__link">
+              <a href="/" className="mobile-submenu__link">
                 How it works
               </a>
             </li>
@@ -51,7 +51,7 @@ function Header() {
               </Link>
             </li>
             <li className="mobile-submenu__item">
-              <a href="#map-search" className="mobile-submenu__link">
+              <a href="/" className="mobile-submenu__link">
                 Search by Map
               </a>
             </li>

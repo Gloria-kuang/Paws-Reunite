@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ReportPetPage.scss";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -13,9 +13,16 @@ import SubmitedModal from "../../components/SubmitedModal/SubmitedModal";
 
 function ReportPetPage(props) {
   const [reportImage, setReportImage] = useState(null);
-  // const [submited, setSubmited] = useState(null);
   const [modalShow, setModalShow] = useState(false);
-  const pathname = props.history.location.pathname;
+  const [pathname, setPathname] = useState(props.history.location.pathname);
+  // const pathname = props.history.location.pathname;
+
+  useEffect(() => {
+    if (props.history.location) {
+      setPathname(props.history.location.pathname);
+    }
+  }, [props.history.location]);
+
   const {
     ready,
     value,
@@ -33,7 +40,6 @@ function ReportPetPage(props) {
       setValue(description, false);
       clearSuggestions();
     };
-
   const renderSuggestions = () =>
     data.map((suggestion) => {
       const {
@@ -129,7 +135,8 @@ function ReportPetPage(props) {
               id="Lost"
               value="Lost"
               className="report-form__radio-input"
-              defaultChecked={pathname.includes("lost")}
+              defaultChecked={false}
+              checked={pathname.includes("lost")}
             />
             <label className="report-form__radio-label report-form__radio-label-tag">
               Lost
@@ -140,7 +147,8 @@ function ReportPetPage(props) {
               id="Lost"
               value="Found"
               className="report-form__radio-input"
-              defaultChecked={pathname.includes("found")}
+              defaultChecked={false}
+              checked={pathname.includes("found")}
             />
             <label className="report-form__radio-label report-form__radio-label-tag">
               Found
@@ -148,7 +156,7 @@ function ReportPetPage(props) {
           </div>
           <div className="report-form__sub-container">
             <div className="report-form__label-set">
-              <p className="report-form__label">I Lost A </p>
+              <p className="report-form__label">Type of Pet </p>
               <input
                 type="radio"
                 name="type"
