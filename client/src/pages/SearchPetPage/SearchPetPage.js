@@ -42,19 +42,6 @@ function SearchPetPage() {
   const getFilterData = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-    // const q = query(
-    //   collection(db, "pet-reports"),
-    //   where("status", "==", e.target.status.value),
-    //   where("type", "==", e.target.type.value),
-    //   where("sex", "==", e.target.sex.value)
-    // );
-    // const querySnapshot = await getDocs(q);
-    // const reportListOld = querySnapshot.docs.map((doc) => {
-    //   const reportId = doc.id;
-    //   const reportData = doc.data();
-    //   return { reportId, reportData };
-    // });
-    // const reportList = reportListOld.reverse();
 
     let temp = [...reportList];
     if (e.target.status.value !== "All") {

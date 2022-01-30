@@ -13,6 +13,7 @@
 
 .report-form {
   color: $color-text;
+  padding: 1rem 3rem;
 
   &__container {
     background-image: url("../../assets/image/background-paws-orange-min.jpg");
@@ -21,13 +22,16 @@
     width: 50%;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
-    padding: 2rem 3rem;
+    // padding: 2rem 3rem;
     margin: 0 auto;
   }
 
   &__header {
     @include large-header;
-    color: $color-primary;
+    background-color: $color-primary;
+    border-radius: 5px 5px 0 0;
+    padding: 1rem 3rem;
+    color: $color-white;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -37,8 +41,8 @@
   }
 
   &__status {
-    border: 3px solid $color-secondary;
     background-color: $color-secondary-light;
+    box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
     border-radius: 10px;
     margin: 0 auto 0.5rem;
     width: 45%;

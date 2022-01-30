@@ -5,6 +5,7 @@ import "./Filter.scss";
 function Filter({ getFilterData }) {
   return (
     <div className="search-filter">
+      <div className="search-filter__header">Filter & Sorting Pets</div>
       <form className="search-filter__form" onSubmit={getFilterData}>
         <div>
           <h3 className="search-filter__label">Status</h3>

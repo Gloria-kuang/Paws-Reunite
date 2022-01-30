@@ -9,9 +9,12 @@ import usePlacesAutocomplete, {
   getLatLng
 } from "use-places-autocomplete";
 import { AiOutlineFileAdd } from "react-icons/ai";
+import SubmitedModal from "../../components/SubmitedModal/SubmitedModal";
 
 function ReportPetPage(props) {
   const [reportImage, setReportImage] = useState(null);
+  // const [submited, setSubmited] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
   const pathname = props.history.location.pathname;
   const {
     ready,
@@ -101,6 +104,7 @@ function ReportPetPage(props) {
         .catch((error) => {
           console.log("Error: ", error);
         });
+      setModalShow(true);
     } else {
       alert("All fields are requried to be filled.");
     }
@@ -108,6 +112,9 @@ function ReportPetPage(props) {
 
   return (
     <main className="report-pet">
+      {modalShow && (
+        <SubmitedModal show={modalShow} onHide={() => setModalShow(false)} />
+      )}
       <div className="report-form__container">
         <h2 className="report-form__header">
           <AiOutlineFileAdd size={40} className="report-form__header-icon" />
