@@ -12,15 +12,16 @@ function SubmitedModal({ show, onHide }) {
       centered
       show={show}
       onHide={onHide}
+      className="submit-modal__container"
     >
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-        <h4 className="modal__text">
+        <h4 className="submit-modal__text">
           Your report has been successfully submitted!
         </h4>
       </Modal.Body>
       <Modal.Footer>
-        <Link to="/search-pet" className="modal__link">
+        <Link to="/search-pet" className="submit-modal__link">
           <PrimaryButton text={"View"} />
         </Link>
       </Modal.Footer>

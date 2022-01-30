@@ -116,6 +116,10 @@
     width: 100%;
     font-size: 1rem;
 
+    @include large-desktop {
+      width: 22rem;
+    }
+
     &:focus {
       border: 3px solid $color-secondary;
       outline: none;
@@ -151,10 +155,10 @@
   }
 
   &__address-list {
-    width: 20rem;
     border: 3px solid $color-secondary;
+    width: 22rem;
     position: absolute;
-    top: 550px;
+    top: 510px;
     border-top: none;
     list-style: none;
     background-color: $color-white;

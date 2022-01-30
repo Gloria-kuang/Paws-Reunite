@@ -274,7 +274,6 @@ function ReportPetPage(props) {
                 onChange={(e) => {
                   setReportImage(e.target.files[0]);
                 }}
-                // className="report-form__radio-input"
               />
             </label>
           </div>

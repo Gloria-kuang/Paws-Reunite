@@ -5,27 +5,37 @@
 .tag {
   &--blue {
     background-color: $color-secondary;
-    width: 6rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 2rem;
     color: $color-white;
-    @include sub-header;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include desktop {
+      @include sub-header;
+      width: 6rem;
+      height: 2.5rem;
+    }
   }
 
   &--orange {
     background-color: $color-primary;
-    width: 6rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 2rem;
     color: $color-white;
-    @include sub-header;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include desktop {
+      @include sub-header;
+      width: 6rem;
+      height: 2.5rem;
+    }
   }
 }

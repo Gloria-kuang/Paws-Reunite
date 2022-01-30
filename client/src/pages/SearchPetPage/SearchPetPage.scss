@@ -5,19 +5,42 @@
 .search-page {
   background-color: $color-primary-light;
   width: 100%;
-  padding: 3rem 4rem;
-  display: flex;
+  padding: 2rem;
+
+  @include tablet {
+    display: flex;
+    padding: 2rem 2rem;
+  }
+
+  @include desktop {
+    padding: 3rem 4rem;
+  }
 }
 
 .search-list {
-  width: 60%;
-  margin: 0rem 4rem;
+  width: 100%;
+  margin-top: 2rem;
+
+  @include tablet {
+    width: 70%;
+    margin: 0rem 2rem;
+  }
+
+  @include desktop {
+    width: 60%;
+    margin: 0rem 4rem;
+  }
 
   &__header {
-    @include large-header;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
     color: $color-white;
     text-align: center;
     margin-bottom: 1rem;
+
+    @include tablet {
+      @include large-header;
+    }
   }
 }
