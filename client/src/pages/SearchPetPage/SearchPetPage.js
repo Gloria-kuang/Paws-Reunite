@@ -59,6 +59,12 @@ function SearchPetPage() {
         (report) => report.reportData.sex === e.target.sex.value
       );
     }
+    if (e.target.address.value !== undefined) {
+      temp = temp.filter((report) => {
+        const address = report.reportData.address.toLowerCase();
+        return address.includes(e.target.address.value.toLowerCase());
+      });
+    }
     if (e.target.date.value !== "All") {
       temp = temp.filter((report) => {
         const reportDate = moment(report.reportData.date);
