@@ -18,6 +18,7 @@ function HomePage() {
             <PrimaryButton text={"I Found A Pet"} />
           </Link>
         </div>
+        <div className="hero__background"></div>
       </section>
       <HowItWorks />
       <section id="map-search">

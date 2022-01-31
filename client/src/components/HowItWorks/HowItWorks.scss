@@ -34,7 +34,10 @@
     font-size: 1.2rem;
 
     @include tablet {
-      width: 50%;
+      width: 55%;
+    }
+    @include desktop {
+      width: 45%;
     }
 
     &--icon {

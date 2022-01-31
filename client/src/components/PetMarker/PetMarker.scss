@@ -17,8 +17,8 @@
     }
 
     &:hover {
-      transform: scale(1.5);
-      transition: 0.3s;
+      transform: scale(2);
+      transition: 0.5s;
     }
   }
 
@@ -35,8 +35,8 @@
       border: 5px solid $color-primary;
     }
     &:hover {
-      transform: scale(1.5);
-      transition: 0.3s;
+      transform: scale(2);
+      transition: 0.5s;
     }
   }
 }
