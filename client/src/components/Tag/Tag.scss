@@ -1,0 +1,41 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.tag {
+  &--blue {
+    background-color: $color-secondary;
+    width: 4rem;
+    height: 2rem;
+    color: $color-white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+      @include sub-header;
+      width: 6rem;
+      height: 2.5rem;
+    }
+  }
+
+  &--orange {
+    background-color: $color-primary;
+    width: 4rem;
+    height: 2rem;
+    color: $color-white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+      @include sub-header;
+      width: 6rem;
+      height: 2.5rem;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.modal {
+  color: $color-text;
+  &__header {
+    @include header;
+  }
+
+  &__report {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      margin-right: 1rem;
+    }
+  }
+
+  &__first-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    margin-right: 1rem;
+  }
+
+  &__image {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    width: 10rem;
+    height: 3.5rem;
+
+    &--light {
+      background-color: $color-secondary;
+    }
+  }
+}
+
+.contact-form {
+  width: 100%;
+
+  &__header {
+    @include sub-header;
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 6rem;
+    resize: none;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    &:focus {
+      outline: none;
+      border: 3px solid $color-secondary;
+    }
+  }
+
+  &__button {
+    width: 8rem;
+    height: 2.5rem;
+    margin: 0 auto;
+  }
+}

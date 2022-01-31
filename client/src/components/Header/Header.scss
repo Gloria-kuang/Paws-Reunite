@@ -1,0 +1,184 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: $color-primary;
+  height: 5.5rem;
+  padding: 0.5rem 3rem;
+  z-index: 5;
+
+  @include tablet {
+    height: 6rem;
+    align-items: center;
+    padding: 0 3rem;
+  }
+
+  @include desktop {
+    padding: 0 8rem;
+  }
+}
+.navbar-hamburger {
+  color: $color-white;
+  &__container {
+    height: 5.5rem;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1rem;
+  }
+
+  @include tablet {
+    display: none;
+  }
+
+  &:hover {
+    color: $color-secondary;
+  }
+}
+.navbar-logo {
+  text-decoration: none;
+
+  &__image {
+    width: 5rem;
+  }
+}
+
+.nav-items {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    width: 40vw;
+    justify-content: flex-end;
+    margin: 0;
+    margin-right: 2rem;
+  }
+
+  @include desktop {
+    width: 60vw;
+  }
+}
+
+.nav-item {
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0 1rem;
+  height: 6rem;
+}
+
+.nav-icon {
+  margin-right: 0.2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  background-color: $color-secondary;
+  border-radius: 5px 5px 0 0;
+  color: $color-white;
+  font-size: 1rem;
+  margin: 0;
+  margin-right: 2rem;
+  border-radius: 5px 5px 0 0;
+  width: 8rem;
+  padding: 0.8rem 0;
+
+  @include desktop {
+    font-size: 1.2rem;
+    width: 12rem;
+  }
+
+  &:hover {
+    background-color: $color-secondary-dark;
+    color: $color-white;
+  }
+
+  &:visited {
+    color: $color-white;
+  }
+}
+
+.submenu {
+  width: 12rem;
+  position: absolute;
+  list-style: none;
+  text-align: start;
+  top: 96px;
+  transition: 0.3s;
+  font-size: 1.2rem;
+  animation: growDown 400ms ease-in-out forwards;
+
+  &--hide {
+    display: none;
+  }
+
+  &__item {
+    background-color: $color-secondary;
+    cursor: pointer;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: $color-white;
+    padding: 1rem;
+    &:hover {
+      color: $color-white;
+      background-color: $color-secondary-dark;
+    }
+  }
+}
+
+.mobile-submenu {
+  width: 40%;
+  position: absolute;
+  list-style: none;
+  text-align: start;
+  top: 88px;
+  left: 55%;
+  transition: 0.3s;
+  font-size: 1.1rem;
+  animation: growDown 400ms ease-in-out forwards;
+
+  &--hide {
+    display: none;
+  }
+
+  &__item {
+    background-color: $color-secondary;
+    cursor: pointer;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: $color-white;
+    padding: 1rem;
+    &:hover {
+      color: $color-white;
+      background-color: $color-secondary-dark;
+    }
+  }
+}
+
+@keyframes growDown {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}

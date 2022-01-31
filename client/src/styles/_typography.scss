@@ -1,35 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap");
+
 @font-face {
-  font-family: "Lato";
-  src: url("../assets/fonts/Lato-Regular.woff2") format("woff2"),
-    url("../assets/fonts/Lato-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+  font-family: "proxima-nova";
+  src: url("https://use.typekit.net/af/2555e1/00000000000000007735e603/30/l?subset_id=2&fvd=n7&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/2555e1/00000000000000007735e603/30/d?subset_id=2&fvd=n7&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/2555e1/00000000000000007735e603/30/a?subset_id=2&fvd=n7&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: bold;
+  font-weight: 700;
 }
 
 @font-face {
-  font-family: "Lato";
-  src: url("../assets/fonts/Lato-Bold.woff2") format("woff2"),
-    url("../assets/fonts/Lato-Bold.woff") format("woff");
-  font-weight: bold;
+  font-family: "proxima-nova";
+  src: url("https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/efe4a5/00000000000000007735e609/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+      format("opentype");
+  font-display: auto;
   font-style: normal;
-  font-display: swap;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: "Lato";
-  src: url("../assets/fonts/Lato-Light.woff2") format("woff2"),
-    url("../assets/fonts/Lato-Light.woff") format("woff");
+  font-family: "proxima-nova";
+  src: url("https://use.typekit.net/af/1be3c2/00000000000000007735e606/30/l?subset_id=2&fvd=n3&v=3")
+      format("woff2"),
+    url("https://use.typekit.net/af/1be3c2/00000000000000007735e606/30/d?subset_id=2&fvd=n3&v=3")
+      format("woff"),
+    url("https://use.typekit.net/af/1be3c2/00000000000000007735e606/30/a?subset_id=2&fvd=n3&v=3")
+      format("opentype");
+  font-display: auto;
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
-  font-display: swap;
 }
 
-@font-face {
-  font-family: "Lato";
-  src: url("../assets/fonts/Lato-Italic.woff2") format("woff2"),
-    url("../assets/fonts/Lato-Italic.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
+@mixin large-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin sub-header {
+  font-size: 1rem;
+  font-weight: bold;
 }

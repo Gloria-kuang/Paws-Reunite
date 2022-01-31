@@ -1,0 +1,99 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.pet-report {
+  background-color: $color-white;
+  color: $color-text;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
+  width: 80%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 2rem;
+
+  @include tablet {
+    width: 100%;
+    flex-direction: row;
+    margin: 0 0 2rem 0;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    transition: 0.3s;
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 1rem;
+    @include tablet {
+      width: 10rem;
+    }
+  }
+
+  &__content {
+    color: $color-text;
+    width: 100%;
+    margin-left: 2rem;
+  }
+
+  &__headline {
+    font-size: 1.5rem;
+    width: 100%;
+
+    @include tablet {
+    }
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 3rem;
+      font-size: 1.8rem;
+    }
+
+    &-text {
+      margin-bottom: 0;
+
+      @include desktop {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__date {
+    font-size: 1.1rem;
+    color: $color-text-light;
+    margin-bottom: 0.5rem;
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__address-line {
+    margin-top: 1.5rem;
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__address {
+    font-size: 1.2rem;
+    @include desktop {
+      @include header;
+      margin: 0;
+    }
+  }
+  &__button-container {
+    width: 40%;
+    margin: 0 auto;
+    @include desktop {
+      margin: 0;
+      width: 20%;
+    }
+  }
+}

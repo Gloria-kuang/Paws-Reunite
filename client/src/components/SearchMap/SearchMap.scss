@@ -1,0 +1,213 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
+
+.map-search {
+  width: 100%;
+  background-image: url("../../assets/image/background-paws-grey-light-orange.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem 1rem;
+  position: relative;
+
+  @include tablet {
+    padding: 4rem 2rem;
+  }
+
+  &__header {
+    @include header;
+    color: $color-white;
+    text-align: center;
+
+    @include tablet {
+      @include large-header;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    position: relative;
+
+    &-input {
+      height: 4rem;
+      width: 90%;
+      border-radius: 5px;
+      border: 5px solid $color-secondary-light;
+      padding: 1rem;
+      margin-bottom: 2rem;
+
+      @include tablet {
+        width: 45%;
+      }
+
+      @include desktop {
+        width: 30%;
+      }
+
+      &::placeholder {
+        font-size: 1rem;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      &:focus {
+        outline: none;
+        border: 5px solid $color-secondary;
+      }
+    }
+  }
+
+  &__form-suggestions {
+    width: 90%;
+    border: 5px solid $color-secondary;
+    position: absolute;
+    top: 50px;
+    border-top: none;
+    list-style: none;
+    background-color: $color-white;
+    z-index: 2;
+
+    @include tablet {
+      width: 45%;
+    }
+
+    @include desktop {
+      width: 30%;
+    }
+
+    &-item {
+      padding: 0.2rem 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $color-secondary-light;
+      }
+    }
+  }
+
+  &__zoom {
+    margin: 2rem 0;
+    width: 90%;
+
+    @include tablet {
+      width: 45%;
+    }
+
+    @include desktop {
+      width: 30%;
+    }
+
+    &-bar {
+      display: flex;
+      justify-content: space-between;
+      background-color: $color-secondary-light;
+      height: 0.4rem;
+      border-radius: 10px;
+      width: 90%;
+      padding: 0 1rem;
+      position: absolute;
+
+      @include tablet {
+        width: 50%;
+      }
+
+      @include desktop {
+        width: 30%;
+      }
+    }
+
+    &-options {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      top: -28px;
+
+      @include desktop {
+        top: -37px;
+      }
+    }
+
+    &-label {
+      color: $color-white;
+      font-size: 1rem;
+      @include desktop {
+        @include header;
+      }
+    }
+
+    &-radio {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__indicator {
+    display: flex;
+    position: absolute;
+    top: 230px;
+    z-index: 3;
+
+    @include tablet {
+      top: 240px;
+    }
+
+    @include desktop {
+      top: 260px;
+    }
+    &-lost {
+      background-color: $color-secondary;
+      width: 4rem;
+      height: 2rem;
+      border: 3px solid $color-white;
+      border-radius: 4px;
+      color: $color-white;
+      font-size: 1rem;
+      text-align: center;
+      margin-right: 2rem;
+
+      @include tablet {
+        @include header;
+        width: 6rem;
+        height: 2.5rem;
+      }
+    }
+
+    &-found {
+      background-color: $color-primary;
+      width: 4rem;
+      height: 2rem;
+      border: 3px solid $color-white;
+      border-radius: 4px;
+      color: $color-white;
+      font-size: 1rem;
+      text-align: center;
+
+      @include tablet {
+        @include header;
+        width: 6rem;
+        height: 2.5rem;
+      }
+    }
+  }
+
+  &__map {
+    width: 90%;
+    height: 18rem;
+    margin-top: 1.5rem;
+
+    @include tablet {
+      width: 80%;
+      height: 25rem;
+    }
+
+    @include desktop {
+      width: 65%;
+      height: 40rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+  }
+}
