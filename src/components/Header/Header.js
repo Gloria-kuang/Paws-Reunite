@@ -4,7 +4,7 @@ import logo from "../../assets/icons/paws-logo.jpg";
 import { AiFillHome } from "react-icons/ai";
 import { GiMagnifyingGlass } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { BiUserCircle } from "react-icons/bi";
+// import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -50,12 +50,12 @@ function Header() {
               </Link>
             </li>
             <li className="mobile-submenu__item">
-              <Link to="/" className="mobile-submenu__link">
+              <Link to="/map-search" className="mobile-submenu__link">
                 Search by Map
               </Link>
             </li>
             <li className="mobile-submenu__item">
-              <Link to="/map-search" className="mobile-submenu__link">
+              <Link to="/search-pet" className="mobile-submenu__link">
                 Pet Reports List
               </Link>
             </li>
