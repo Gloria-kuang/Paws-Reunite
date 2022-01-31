@@ -4,7 +4,7 @@ import logo from "../../assets/icons/paws-logo.jpg";
 import { AiFillHome } from "react-icons/ai";
 import { GiMagnifyingGlass } from "react-icons/gi";
 import { FaMapMarkerAlt } from "react-icons/fa";
-// import { BiUserCircle } from "react-icons/bi";
+import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -154,6 +154,7 @@ function Header() {
             )}
           </li>
         </ul>
+        <BiUserCircle size={40} className="navbar-user" />
       </nav>
     </>
   );

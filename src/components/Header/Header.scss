@@ -7,7 +7,7 @@
   justify-content: space-between;
   background-color: $color-primary;
   height: 5.5rem;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 3rem 0.5rem 2rem;
   z-index: 5;
 
   @include tablet {
@@ -18,6 +18,19 @@
 
   @include desktop {
     padding: 0 8rem;
+  }
+
+  &-logo {
+    text-decoration: none;
+    &__image {
+      width: 5rem;
+    }
+  }
+
+  &-user {
+    color: $color-white;
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
   }
 }
 .navbar-hamburger {
@@ -35,13 +48,6 @@
 
   &:hover {
     color: $color-secondary;
-  }
-}
-.navbar-logo {
-  text-decoration: none;
-
-  &__image {
-    width: 5rem;
   }
 }
 
