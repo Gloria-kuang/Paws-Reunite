@@ -14,7 +14,7 @@
   &__container {
     width: 100%;
     height: 50%;
-    background-image: url("../../assets/image/background-paws-orange-min.jpg");
+    background-image: url("../../assets/image/background-paws-grey.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 
   &__quote {
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 2rem;
     border: 3px solid $color-primary;
     padding: 2rem;
     font-size: 1.2rem;
@@ -37,6 +37,8 @@
       width: 55%;
     }
     @include desktop {
+      margin-bottom: 3rem;
+      margin-left: 10%;
       width: 45%;
     }
 
@@ -58,9 +60,45 @@
     }
   }
 }
+
+.statement {
+  width: 90%;
+  margin: 0 auto 2rem;
+  border: 3px solid $color-primary;
+  padding: 2rem;
+  font-size: 1.2rem;
+
+  @include tablet {
+    width: 55%;
+  }
+  @include desktop {
+    margin-right: 10%;
+    width: 45%;
+  }
+
+  &__icon {
+    color: $color-primary;
+    margin-right: 0.5rem;
+  }
+
+  &__blue {
+    font-weight: bold;
+    color: $color-secondary;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__orange {
+    font-weight: bold;
+    color: $color-primary;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+}
+
 .how-it-works {
   padding: 3rem 2rem;
-  background-image: url("../../assets/image/background-paws-orange-min.jpg");
+  background-image: url("../../assets/image/background-paws-grey.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

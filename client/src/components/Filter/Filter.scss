@@ -80,6 +80,10 @@
     padding: 0.5rem;
     border-radius: 4px;
     width: 100%;
+    &:focus {
+      border: 3px solid $color-secondary;
+      outline: none;
+    }
   }
 
   &__sub-container {

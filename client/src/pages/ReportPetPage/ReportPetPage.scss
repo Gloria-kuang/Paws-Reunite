@@ -124,6 +124,10 @@
       border: 3px solid $color-secondary;
       outline: none;
     }
+
+    &--error {
+      border: 3px solid $color-error;
+    }
   }
 
   &__textarea {
@@ -178,5 +182,10 @@
     &--small {
       font-weight: normal;
     }
+  }
+
+  &__field-required {
+    font-size: 0.8rem;
+    color: $color-error;
   }
 }
