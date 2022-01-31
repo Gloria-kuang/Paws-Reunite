@@ -80,9 +80,9 @@ function Header() {
                 onClick={() => setHomeDropdown(!homeDropdown)}
               >
                 <li className="submenu__item">
-                  <a href="#how-it-works" className="submenu__link">
+                  <Link to="/how-it-works" className="submenu__link">
                     How it works
-                  </a>
+                  </Link>
                 </li>
               </ul>
             )}
@@ -137,9 +137,9 @@ function Header() {
                 onClick={() => setSearchDropdown(!searchDropdown)}
               >
                 <li className="submenu__item">
-                  <a href="#map-search" className="submenu__link">
+                  <Link to="/map-search" className="submenu__link">
                     Search by Map
-                  </a>
+                  </Link>
                 </li>
                 <li className="submenu__item">
                   <Link

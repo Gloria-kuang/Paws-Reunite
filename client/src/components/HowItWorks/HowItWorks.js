@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./HowItWorks.scss";
-import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Sector } from "recharts";
+import { FaQuoteLeft } from "react-icons/fa";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 }
+const dogData = [
+  { name: "Missing Dog", value: 160 },
+  { name: "Not Missing", value: 840 }
+];
+
+const catData = [
+  { name: "Missing Cat", value: 180 },
+  { name: "Not Missing", value: 820 }
 ];
 
 const renderActiveShape = (props) => {
@@ -36,7 +40,14 @@ const renderActiveShape = (props) => {
 
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+      <text
+        x={cx}
+        y={cy}
+        dy={8}
+        textAnchor="middle"
+        fill={fill}
+        className="pet-figure__text"
+      >
         {payload.name}
       </text>
       <Sector
@@ -68,16 +79,7 @@ const renderActiveShape = (props) => {
         y={ey}
         textAnchor={textAnchor}
         fill="#333"
-      >{`PV ${value}`}</text>
-      <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
-        y={ey}
-        dy={18}
-        textAnchor={textAnchor}
-        fill="#999"
-      >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
-      </text>
+      >{`${percent * 100}%`}</text>
     </g>
   );
 };
@@ -95,23 +97,49 @@ class HowItWorks extends Component {
   render() {
     return (
       <section>
-        <div className="pet-figure">
-          <PieChart width={400} height={400}>
-            <Pie
-              activeIndex={this.state.activeIndex}
-              activeShape={renderActiveShape}
-              data={data}
-              cx="50%"
-              cy="50%"
-              innerRadius={60}
-              outerRadius={80}
-              fill="#8884d8"
-              dataKey="value"
-              onMouseEnter={this.onPieEnter}
-            />
-          </PieChart>
+        <div className="pet-figure__container">
+          <div className="pet-figure">
+            <PieChart width={400} height={400}>
+              <Pie
+                activeIndex={this.state.activeIndex}
+                activeShape={renderActiveShape}
+                data={dogData}
+                cx="50%"
+                cy="50%"
+                innerRadius={75}
+                outerRadius={100}
+                fill="#8ccde3"
+                dataKey="value"
+                onMouseEnter={this.onPieEnter}
+              />
+            </PieChart>
+            <PieChart width={400} height={400}>
+              <Pie
+                activeIndex={this.state.activeIndex}
+                activeShape={renderActiveShape}
+                data={catData}
+                cx="50%"
+                cy="50%"
+                innerRadius={75}
+                outerRadius={100}
+                fill="#f9b066"
+                dataKey="value"
+                onMouseEnter={this.onPieEnter}
+              />
+            </PieChart>
+          </div>
+          <div className="pet-figure__quote">
+            <p>
+              <FaQuoteLeft size={30} className="pet-figure__quote--icon" />
+              The published research study on lost pet rates found that between{" "}
+              <span className="pet-figure__quote--blue">16%</span> of dogs and{" "}
+              <span className="pet-figure__quote--orange">18%</span> of cats are
+              likely to go missing at least once in five years.
+            </p>
+          </div>
         </div>
-        <div className="how-it-works" id="how-it-works">
+
+        <div className="how-it-works">
           <h2 className="how-it-works__header">How it Works</h2>
           <div className="circle-card__container">
             <div className="circle-card circle-card--left">

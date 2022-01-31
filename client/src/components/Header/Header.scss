@@ -8,6 +8,7 @@
   background-color: $color-primary;
   height: 5.5rem;
   padding: 0.5rem 3rem;
+  z-index: 5;
 
   @include tablet {
     height: 6rem;

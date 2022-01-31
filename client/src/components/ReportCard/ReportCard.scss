@@ -7,15 +7,17 @@
   color: $color-text;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
-  width: 100%;
+  width: 80%;
   padding: 1rem;
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto 2rem;
 
   @include tablet {
+    width: 100%;
     flex-direction: row;
+    margin: 0 0 2rem 0;
   }
 
   &:hover {

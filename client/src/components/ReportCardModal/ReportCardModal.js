@@ -53,7 +53,10 @@ function ReportCardModal({ show, modalData, onHide }) {
             <p className="contact-form__header">
               Please leave your message here
             </p>
-            <textarea className="contact-form__textarea"></textarea>
+            <textarea
+              className="contact-form__textarea"
+              placeholder="Please leave your message here, we will send out the email to contact the pet-owner for you."
+            ></textarea>
             <div className="contact-form__button">
               <AlternateButton text={"submit"} />
             </div>
