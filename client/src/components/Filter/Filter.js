@@ -26,10 +26,9 @@ function Filter({ getFilterData }) {
             className="search-filter__radio-input"
           />
           <label className="search-filter__radio-label">Lost</label>
-
           <input
             type="radio"
-            name="type"
+            name="status"
             id="Found"
             value="Found"
             className="search-filter__radio-input"

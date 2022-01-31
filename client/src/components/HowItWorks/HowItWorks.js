@@ -131,7 +131,11 @@ const HowItWorks = () => {
             />
           </PieChart>
         </div>
-        <div className="pet-figure__quote" data-aos="fade-right">
+        <div
+          className="pet-figure__quote"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
           <p>
             <FaQuoteLeft size={30} className="pet-figure__quote--icon" />
             The published research study on lost pet rates found that between{" "}
@@ -154,7 +158,11 @@ const HowItWorks = () => {
 
       <div className="how-it-works">
         <h2 className="how-it-works__header">How it Works</h2>
-        <div className="circle-card__container" data-aos="fade-up">
+        <div
+          className="circle-card__container"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           <div className="circle-card circle-card--left">
             <div className="hidden__content">
               <h3 className="hidden__title">Step 1</h3>

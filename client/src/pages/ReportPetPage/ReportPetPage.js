@@ -9,13 +9,14 @@ import usePlacesAutocomplete, {
   getLatLng
 } from "use-places-autocomplete";
 import { AiOutlineFileAdd } from "react-icons/ai";
+import { MdError } from "react-icons/md";
 import SubmitedModal from "../../components/SubmitedModal/SubmitedModal";
 
 function ReportPetPage(props) {
   const [reportImage, setReportImage] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [pathname, setPathname] = useState(props.history.location.pathname);
-  // const pathname = props.history.location.pathname;
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (props.history.location) {
@@ -112,8 +113,21 @@ function ReportPetPage(props) {
         });
       setModalShow(true);
     } else {
-      alert("All fields are requried to be filled.");
+      alert("The highlighted fields are requried to be filled.");
     }
+  };
+
+  const renderError = () => {
+    return (
+      <div className="report-form__field-required">
+        {
+          <>
+            <MdError />
+            <span>This field is required.</span>
+          </>
+        }
+      </div>
+    );
   };
 
   return (
@@ -126,7 +140,11 @@ function ReportPetPage(props) {
           <AiOutlineFileAdd size={40} className="report-form__header-icon" />
           Report A Pet
         </h2>
-        <form className="report-form" onSubmit={handleSubmitReport}>
+        <form
+          className="report-form"
+          onSubmit={handleSubmitReport}
+          id="report-form"
+        >
           <div className="report-form__status">
             <p className="report-form__label">Pet Status</p>
             <input
@@ -163,6 +181,7 @@ function ReportPetPage(props) {
                 id="Dog"
                 value="Dog"
                 className="report-form__radio-input"
+                defaultChecked
               />
               <label className="report-form__radio-label">Dog</label>
 
@@ -183,6 +202,7 @@ function ReportPetPage(props) {
                 id="Male"
                 value="Male"
                 className="report-form__radio-input"
+                defaultChecked
               />
               <label className="report-form__radio-label">Male</label>
 
@@ -210,19 +230,35 @@ function ReportPetPage(props) {
               <input
                 type="text"
                 name="name"
-                className="report-form__input"
+                className={
+                  !errors.name
+                    ? "report-form__input"
+                    : "report-form__input report-form__input--error"
+                }
                 placeholder="Enter Unkown If You Don't Know the Name"
+                onBlur={(e) => {
+                  setErrors({ ...errors, name: e.target.value === "" });
+                }}
               />
+              {errors.name && renderError()}
             </label>
             <label className="report-form__label report-form__label-set">
               Last Seen Address
               <input
                 name="address"
-                className="report-form__input"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 placeholder="Enter the Nearest Address Last Seen"
+                className={
+                  !errors.address
+                    ? "report-form__input"
+                    : "report-form__input report-form__input--error"
+                }
+                onBlur={(e) => {
+                  setErrors({ ...errors, address: e.target.value === "" });
+                }}
               />
+              {errors.address && renderError()}
               {status === "OK" && (
                 <ul className="report-form__address-list">
                   {renderSuggestions()}
@@ -236,9 +272,17 @@ function ReportPetPage(props) {
               <input
                 type="email"
                 name="email"
-                className="report-form__input"
                 placeholder="Enter Your Email"
+                className={
+                  !errors.email
+                    ? "report-form__input"
+                    : "report-form__input report-form__input--error"
+                }
+                onBlur={(e) => {
+                  setErrors({ ...errors, email: e.target.value === "" });
+                }}
               />
+              {errors.email && renderError()}
             </label>
             <label className="report-form__label report-form__label-set">
               Last Seen Date
@@ -246,8 +290,16 @@ function ReportPetPage(props) {
                 type="date"
                 name="date"
                 min="2021-01-01"
-                className="report-form__input"
+                className={
+                  !errors.date
+                    ? "report-form__input"
+                    : "report-form__input report-form__input--error"
+                }
+                onBlur={(e) => {
+                  setErrors({ ...errors, date: e.target.value === "" });
+                }}
               />
+              {errors.date && renderError()}
             </label>
           </div>
           <div className="report-form__sub-container">
