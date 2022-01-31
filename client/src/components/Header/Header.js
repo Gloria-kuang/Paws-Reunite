@@ -35,7 +35,7 @@ function Header() {
             onMouseLeave={() => setAllDropdown(false)}
           >
             <li className="mobile-submenu__item">
-              <Link href="/how-it-works" className="mobile-submenu__link">
+              <Link to="/how-it-works" className="mobile-submenu__link">
                 How it works
               </Link>
             </li>
@@ -50,12 +50,12 @@ function Header() {
               </Link>
             </li>
             <li className="mobile-submenu__item">
-              <a href="/" className="mobile-submenu__link">
+              <Link to="/" className="mobile-submenu__link">
                 Search by Map
-              </a>
+              </Link>
             </li>
             <li className="mobile-submenu__item">
-              <Link to="/search-pet" className="mobile-submenu__link">
+              <Link to="/map-search" className="mobile-submenu__link">
                 Pet Reports List
               </Link>
             </li>

@@ -8,6 +8,7 @@ import HowItWorks from "./components/HowItWorks/HowItWorks";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { initializeApp } from "firebase/app";
+import SearchMap from "./components/SearchMap/SearchMap";
 
 function App() {
   const firebaseConfig = {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/report-pet/lost" component={ReportPetPage} />
         <Route path="/report-pet/found" component={ReportPetPage} />
         <Route path="/search-pet" component={SearchPetPage} />
+        <Route path="/map-search" component={SearchMap} />
         <Route path="/report/:reportId" component={SingleReportPage} />
       </Switch>
       <Footer />
