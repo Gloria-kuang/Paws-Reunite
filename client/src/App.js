@@ -9,6 +9,9 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { initializeApp } from "firebase/app";
 import SearchMap from "./components/SearchMap/SearchMap";
+import AOS from "aos";
+
+AOS.init();
 
 function App() {
   const firebaseConfig = {

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./HowItWorks.scss";
 import { PieChart, Pie, Sector } from "recharts";
 import { FaQuoteLeft } from "react-icons/fa";
+import { RiHandHeartLine } from "react-icons/ri";
+import AOS from "aos";
 
 const dogData = [
   { name: "Missing Dog", value: 160 },
@@ -128,13 +130,25 @@ class HowItWorks extends Component {
               />
             </PieChart>
           </div>
-          <div className="pet-figure__quote">
+          <div data-aos="fade-right">
+            <div className="pet-figure__quote">
+              <p>
+                <FaQuoteLeft size={30} className="pet-figure__quote--icon" />
+                The published research study on lost pet rates found that
+                between <span className="pet-figure__quote--blue"> 16%</span> of
+                dogs and <span className="pet-figure__quote--orange"> 18%</span>{" "}
+                of cats are likely to go missing at least once in five years.
+              </p>
+            </div>
+            <div className="statement"></div>
+
             <p>
-              <FaQuoteLeft size={30} className="pet-figure__quote--icon" />
-              The published research study on lost pet rates found that between{" "}
-              <span className="pet-figure__quote--blue">16%</span> of dogs and{" "}
-              <span className="pet-figure__quote--orange">18%</span> of cats are
-              likely to go missing at least once in five years.
+              <RiHandHeartLine size={45} className="statement__icon" /> Losing
+              our furry friends is such a tragedy, so here at{" "}
+              <span className="statement__blue">Paws Runite</span> we work
+              together to make{" "}
+              <span className="statement__orange">happy reunions</span> for the
+              pets and their families.
             </p>
           </div>
         </div>
