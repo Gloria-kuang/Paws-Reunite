@@ -21,6 +21,7 @@
     "react-router-dom": "5.3",
     "react-scripts": "5.0.0",
     "react-share": "^4.4.0",
+    "recharts": "^2.1.8",
     "sass": "^1.49.0",
     "uniqid": "^5.4.0",
     "use-places-autocomplete": "^1.11.0",

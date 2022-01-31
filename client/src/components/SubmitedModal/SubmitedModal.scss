@@ -1,0 +1,11 @@
+@use "../../styles/colors" as *;
+
+.submit-modal {
+  &__text {
+    font-size: 1.5rem;
+  }
+
+  &__link {
+    width: 8rem;
+  }
+}

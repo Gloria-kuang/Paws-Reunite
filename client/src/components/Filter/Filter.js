@@ -5,6 +5,7 @@ import "./Filter.scss";
 function Filter({ getFilterData }) {
   return (
     <div className="search-filter">
+      <div className="search-filter__header">Filter & Sorting Pets</div>
       <form className="search-filter__form" onSubmit={getFilterData}>
         <div>
           <h3 className="search-filter__label">Status</h3>
@@ -14,6 +15,7 @@ function Filter({ getFilterData }) {
             id="All"
             value="All"
             className="search-filter__radio-input"
+            defaultChecked
           />
           <label className="search-filter__radio-label">All</label>
           <input
@@ -42,6 +44,7 @@ function Filter({ getFilterData }) {
             id="All"
             value="All"
             className="search-filter__radio-input"
+            defaultChecked
           />
           <label className="search-filter__radio-label">All</label>
           <input
@@ -70,6 +73,7 @@ function Filter({ getFilterData }) {
             id="All"
             value="All"
             className="search-filter__radio-input"
+            defaultChecked
           />
           <label className="search-filter__radio-label">All</label>
           <input
@@ -100,8 +104,14 @@ function Filter({ getFilterData }) {
         </div>
         <div>
           <h3 className="search-filter__label">Location</h3>
-          <p className="search-filter__text">City, Postal Code, or Address</p>
-          <input type="text" className="search-filter__input"></input>
+          <p className="search-filter__text">
+            City or Address Keywords, e.g. Toronto
+          </p>
+          <input
+            type="text"
+            className="search-filter__input"
+            name="address"
+          ></input>
         </div>
         <div className="serch-filter__sub-container">
           <h3 className="search-filter__label">Within Past</h3>
@@ -112,6 +122,7 @@ function Filter({ getFilterData }) {
               id="All"
               value="All"
               className="search-filter__radio-input"
+              defaultChecked
             />
             <label className="search-filter__radio-label">Any</label>
             <input

@@ -8,42 +8,75 @@
   background-size: cover;
   background-position: center;
   background-repeat: none;
-  padding: 5rem 0rem;
+  padding: 2rem 1rem;
+
+  @include tablet {
+    padding: 5rem 0rem;
+  }
 }
 
 .report-form {
   color: $color-text;
+  padding: 1rem 1rem;
+  @include tablet {
+    padding: 1rem 3rem;
+  }
 
   &__container {
     background-image: url("../../assets/image/background-paws-orange-min.jpg");
     background-size: cover;
     background-position: center;
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
     box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
-    padding: 2rem 3rem;
     margin: 0 auto;
+
+    @include tablet {
+      width: 75%;
+    }
+    @include desktop {
+      width: 50%;
+    }
   }
 
   &__header {
-    @include large-header;
-    color: $color-primary;
+    @include header;
+    background-color: $color-primary;
+    border-radius: 5px 5px 0 0;
+    padding: 1rem 3rem;
+    color: $color-white;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    @include tablet {
+      @include large-header;
+    }
+    &-icon {
+      margin-right: 0.5rem;
+    }
   }
 
   &__status {
-    border: 3px solid $color-secondary;
     background-color: $color-secondary-light;
+    box-shadow: 5px 5px 10px rgba(19, 24, 44, 0.1);
     border-radius: 10px;
     margin: 0 auto 0.5rem;
-    width: 45%;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include tablet {
+      width: 60%;
+    }
+
+    @include desktop {
+      width: 45%;
+    }
   }
 
   &__label {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 0.5rem 0;
     margin: 0;
     margin-right: 1rem;
@@ -51,12 +84,15 @@
     font-weight: 600;
 
     &-set {
-      width: 50%;
+      width: 100%;
+      @include tablet {
+        width: 50%;
+      }
     }
   }
 
   &__radio-label {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 0 1rem 1rem 0.5rem;
 
     &-tag {
@@ -65,17 +101,24 @@
   }
 
   &__sub-container {
-    display: flex;
     width: 100%;
-    justify-content: flex-start;
+    @include tablet {
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+    }
   }
 
   &__input {
     margin-top: 0.5rem;
     padding: 0.5rem;
     border-radius: 4px;
-    width: 20rem;
+    width: 100%;
     font-size: 1rem;
+
+    @include large-desktop {
+      width: 22rem;
+    }
 
     &:focus {
       border: 3px solid $color-secondary;
@@ -97,6 +140,13 @@
     }
   }
 
+  &__note {
+    font-size: 1rem;
+    font-weight: normal;
+    color: grey;
+    text-transform: none;
+  }
+
   &__button {
     display: flex;
     width: 100%;
@@ -105,10 +155,10 @@
   }
 
   &__address-list {
-    width: 20rem;
     border: 3px solid $color-secondary;
+    width: 22rem;
     position: absolute;
-    top: 550px;
+    top: 510px;
     border-top: none;
     list-style: none;
     background-color: $color-white;

@@ -132,48 +132,55 @@ function SearchMap() {
           </ul>
         )}
         <div className="map-search__zoom">
-          <div className="map-search__zoom-options">
-            <input
-              type="radio"
-              name="zoom"
-              id="zoom"
-              value="15"
-              className="map-search__zoom-radio"
-            />
-            <label>1 km</label>
-          </div>
-          <div className="map-search__zoom-options">
-            <input
-              type="radio"
-              name="zoom"
-              id="zoom"
-              value="13.5"
-              className="map-search__zoom-radio"
-            />
-            <label>3 km</label>
-          </div>
-          <div className="map-search__zoom-options">
-            <input
-              type="radio"
-              name="zoom"
-              id="zoom"
-              value="12.5"
-              className="map-search__zoom-radio"
-            />
-            <label>5 km</label>
-          </div>
-          <div className="map-search__zoom-options">
-            <input
-              type="radio"
-              name="zoom"
-              id="zoom"
-              value="11.5"
-              className="map-search__zoom-radio"
-            />
-            <label>10 km</label>
+          <div className="map-search__zoom-bar">
+            <div className="map-search__zoom-options">
+              <label className="map-search__zoom-label">1 km</label>
+              <input
+                type="radio"
+                name="zoom"
+                id="zoom"
+                value="15"
+                className="map-search__zoom-radio"
+              />
+            </div>
+            <div className="map-search__zoom-options">
+              <label className="map-search__zoom-label">3 km</label>
+              <input
+                type="radio"
+                name="zoom"
+                id="zoom"
+                value="13.5"
+                className="map-search__zoom-radio"
+                checked
+              />
+            </div>
+            <div className="map-search__zoom-options">
+              <label className="map-search__zoom-label">5 km</label>
+              <input
+                type="radio"
+                name="zoom"
+                id="zoom"
+                value="12.5"
+                className="map-search__zoom-radio"
+              />
+            </div>
+            <div className="map-search__zoom-options">
+              <label className="map-search__zoom-label">10 km</label>
+              <input
+                type="radio"
+                name="zoom"
+                id="zoom"
+                value="11.5"
+                className="map-search__zoom-radio"
+              />
+            </div>
           </div>
         </div>
         <SecondaryButton text={"Submit"} type="submit" />
+        <div className="map-search__indicator">
+          <div className="map-search__indicator-lost">Lost</div>
+          <div className="map-search__indicator-found">Found</div>
+        </div>
         <div className="map-search__map">
           <GoogleMapReact
             bootstrapURLKeys={{

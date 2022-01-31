@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ReportPetPage.scss";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -8,10 +8,21 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng
 } from "use-places-autocomplete";
+import { AiOutlineFileAdd } from "react-icons/ai";
+import SubmitedModal from "../../components/SubmitedModal/SubmitedModal";
 
 function ReportPetPage(props) {
   const [reportImage, setReportImage] = useState(null);
-  const pathname = props.history.location.pathname;
+  const [modalShow, setModalShow] = useState(false);
+  const [pathname, setPathname] = useState(props.history.location.pathname);
+  // const pathname = props.history.location.pathname;
+
+  useEffect(() => {
+    if (props.history.location) {
+      setPathname(props.history.location.pathname);
+    }
+  }, [props.history.location]);
+
   const {
     ready,
     value,
@@ -29,7 +40,6 @@ function ReportPetPage(props) {
       setValue(description, false);
       clearSuggestions();
     };
-
   const renderSuggestions = () =>
     data.map((suggestion) => {
       const {
@@ -56,46 +66,66 @@ function ReportPetPage(props) {
   const handleSubmitReport = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-    // error checking
-    const db = getFirestore();
-    const storage = getStorage();
-    const reportImagesRef = ref(
-      storage,
-      `report/${moment().toISOString()}.jpg`
-    );
+    const isValid =
+      e.target.status.value &&
+      e.target.type.value &&
+      e.target.sex.value &&
+      e.target.name.value &&
+      e.target.address.value &&
+      e.target.email.value &&
+      e.target.date.value &&
+      e.target.description.value;
 
-    await uploadBytes(reportImagesRef, reportImage);
-    const imgPath = await getDownloadURL(reportImagesRef);
+    if (isValid) {
+      const db = getFirestore();
+      const storage = getStorage();
+      const reportImagesRef = ref(
+        storage,
+        `report/${moment().toISOString()}.jpg`
+      );
 
-    const currentDate = moment().unix();
+      await uploadBytes(reportImagesRef, reportImage);
+      const imgPath = await getDownloadURL(reportImagesRef);
 
-    getGeocode({ address: e.target.address.value })
-      .then((results) => getLatLng(results[0]))
-      .then(async ({ lat, lng }) => {
-        const docRef = await addDoc(collection(db, "pet-reports"), {
-          status: e.target.status.value,
-          type: e.target.type.value,
-          sex: e.target.sex.value,
-          name: e.target.name.value,
-          address: e.target.address.value,
-          email: e.target.email.value,
-          date: e.target.date.value,
-          description: e.target.description.value,
-          timestamp: currentDate,
-          image: imgPath,
-          lat: lat,
-          lng: lng
+      const currentDate = moment().unix();
+
+      getGeocode({ address: e.target.address.value })
+        .then((results) => getLatLng(results[0]))
+        .then(async ({ lat, lng }) => {
+          const docRef = await addDoc(collection(db, "pet-reports"), {
+            status: e.target.status.value,
+            type: e.target.type.value,
+            sex: e.target.sex.value,
+            name: e.target.name.value,
+            address: e.target.address.value,
+            email: e.target.email.value,
+            date: e.target.date.value,
+            description: e.target.description.value,
+            timestamp: currentDate,
+            image: imgPath,
+            lat: lat,
+            lng: lng
+          });
+        })
+        .catch((error) => {
+          console.log("Error: ", error);
         });
-      })
-      .catch((error) => {
-        console.log("Error: ", error);
-      });
+      setModalShow(true);
+    } else {
+      alert("All fields are requried to be filled.");
+    }
   };
 
   return (
     <main className="report-pet">
+      {modalShow && (
+        <SubmitedModal show={modalShow} onHide={() => setModalShow(false)} />
+      )}
       <div className="report-form__container">
-        <h2 className="report-form__header">Report A Pet</h2>
+        <h2 className="report-form__header">
+          <AiOutlineFileAdd size={40} className="report-form__header-icon" />
+          Report A Pet
+        </h2>
         <form className="report-form" onSubmit={handleSubmitReport}>
           <div className="report-form__status">
             <p className="report-form__label">Pet Status</p>
@@ -105,7 +135,8 @@ function ReportPetPage(props) {
               id="Lost"
               value="Lost"
               className="report-form__radio-input"
-              defaultChecked={pathname.includes("lost")}
+              defaultChecked={false}
+              checked={pathname.includes("lost")}
             />
             <label className="report-form__radio-label report-form__radio-label-tag">
               Lost
@@ -116,7 +147,8 @@ function ReportPetPage(props) {
               id="Lost"
               value="Found"
               className="report-form__radio-input"
-              defaultChecked={pathname.includes("found")}
+              defaultChecked={false}
+              checked={pathname.includes("found")}
             />
             <label className="report-form__radio-label report-form__radio-label-tag">
               Found
@@ -124,7 +156,7 @@ function ReportPetPage(props) {
           </div>
           <div className="report-form__sub-container">
             <div className="report-form__label-set">
-              <p className="report-form__label">I Lost A </p>
+              <p className="report-form__label">Type of Pet </p>
               <input
                 type="radio"
                 name="type"
@@ -175,16 +207,21 @@ function ReportPetPage(props) {
           <div className="report-form__sub-container">
             <label className="report-form__label report-form__label-set">
               Pet Name
-              <input type="text" name="name" className="report-form__input" />
+              <input
+                type="text"
+                name="name"
+                className="report-form__input"
+                placeholder="Enter Unkown If You Don't Know the Name"
+              />
             </label>
             <label className="report-form__label report-form__label-set">
               Last Seen Address
               <input
-                // type="text"
                 name="address"
                 className="report-form__input"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
+                placeholder="Enter the Nearest Address Last Seen"
               />
               {status === "OK" && (
                 <ul className="report-form__address-list">
@@ -196,10 +233,15 @@ function ReportPetPage(props) {
           <div className="report-form__sub-container">
             <label className="report-form__label report-form__label-set">
               Contact Email
-              <input type="email" name="email" className="report-form__input" />
+              <input
+                type="email"
+                name="email"
+                className="report-form__input"
+                placeholder="Enter Your Email"
+              />
             </label>
             <label className="report-form__label report-form__label-set">
-              Lost Date
+              Last Seen Date
               <input
                 type="date"
                 name="date"
@@ -215,12 +257,16 @@ function ReportPetPage(props) {
                 type="text"
                 name="description"
                 className="report-form__textarea"
+                placeholder="Enter detailed descriptions will boost the reunite chances, e.g breed, age, color, collar/chip/tatoo..."
               />
             </label>
           </div>
           <div className="report-form__sub-container">
             <label className="report-form__label report-form__label-set">
               Image
+              <p className="report-form__note">
+                Please upload the pet image here
+              </p>
               <input
                 type="file"
                 name="image"
@@ -228,7 +274,6 @@ function ReportPetPage(props) {
                 onChange={(e) => {
                   setReportImage(e.target.files[0]);
                 }}
-                // className="report-form__radio-input"
               />
             </label>
           </div>

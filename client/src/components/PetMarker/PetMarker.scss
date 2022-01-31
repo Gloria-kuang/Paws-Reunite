@@ -1,29 +1,42 @@
 @use "../../styles/colors" as *;
 @use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
 
 .marker {
   &--lost {
-    width: 5rem;
-    height: 5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     size: cover;
     border-radius: 50%;
-    border: 5px solid $color-secondary;
+    border: 3px solid $color-secondary;
+
+    @include tablet {
+      width: 5rem;
+      height: 5rem;
+      border: 5px solid $color-secondary;
+    }
 
     &:hover {
-      transform: scale(1.5);
-      transition: 0.3s;
+      transform: scale(2);
+      transition: 0.5s;
     }
   }
 
   &--found {
-    width: 5rem;
-    height: 5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     size: cover;
     border-radius: 50%;
-    border: 5px solid $color-primary;
+    border: 3px solid $color-primary;
+
+    @include tablet {
+      width: 5rem;
+      height: 5rem;
+      border: 5px solid $color-primary;
+    }
     &:hover {
-      transform: scale(1.5);
-      transition: 0.3s;
+      transform: scale(2);
+      transition: 0.5s;
     }
   }
 }

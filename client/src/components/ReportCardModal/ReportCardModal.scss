@@ -10,7 +10,13 @@
 
   &__report {
     display: flex;
-    margin-right: 1rem;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      margin-right: 1rem;
+    }
   }
 
   &__first-line {

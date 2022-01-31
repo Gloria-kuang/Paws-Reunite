@@ -42,19 +42,6 @@ function SearchPetPage() {
   const getFilterData = async (e) => {
     e.stopPropagation();
     e.preventDefault();
-    // const q = query(
-    //   collection(db, "pet-reports"),
-    //   where("status", "==", e.target.status.value),
-    //   where("type", "==", e.target.type.value),
-    //   where("sex", "==", e.target.sex.value)
-    // );
-    // const querySnapshot = await getDocs(q);
-    // const reportListOld = querySnapshot.docs.map((doc) => {
-    //   const reportId = doc.id;
-    //   const reportData = doc.data();
-    //   return { reportId, reportData };
-    // });
-    // const reportList = reportListOld.reverse();
 
     let temp = [...reportList];
     if (e.target.status.value !== "All") {
@@ -71,6 +58,12 @@ function SearchPetPage() {
       temp = temp.filter(
         (report) => report.reportData.sex === e.target.sex.value
       );
+    }
+    if (e.target.address.value !== undefined) {
+      temp = temp.filter((report) => {
+        const address = report.reportData.address.toLowerCase();
+        return address.includes(e.target.address.value.toLowerCase());
+      });
     }
     if (e.target.date.value !== "All") {
       temp = temp.filter((report) => {
