@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import "./HowItWorks.scss";
 import { PieChart, Pie, Sector } from "recharts";
 import { FaQuoteLeft } from "react-icons/fa";
 import { RiHandHeartLine } from "react-icons/ri";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const dogData = [
   { name: "Missing Dog", value: 160 },
@@ -86,103 +87,100 @@ const renderActiveShape = (props) => {
   );
 };
 
-class HowItWorks extends Component {
-  state = {
-    activeIndex: 0
+const HowItWorks = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const onPieEnter = (_, index) => {
+    setActiveIndex(index);
   };
 
-  onPieEnter = (_, index) => {
-    this.setState({
-      activeIndex: index
-    });
-  };
-  render() {
-    return (
-      <section>
-        <div className="pet-figure__container">
-          <div className="pet-figure">
-            <PieChart width={400} height={400}>
-              <Pie
-                activeIndex={this.state.activeIndex}
-                activeShape={renderActiveShape}
-                data={dogData}
-                cx="50%"
-                cy="50%"
-                innerRadius={75}
-                outerRadius={100}
-                fill="#8ccde3"
-                dataKey="value"
-                onMouseEnter={this.onPieEnter}
-              />
-            </PieChart>
-            <PieChart width={400} height={400}>
-              <Pie
-                activeIndex={this.state.activeIndex}
-                activeShape={renderActiveShape}
-                data={catData}
-                cx="50%"
-                cy="50%"
-                innerRadius={75}
-                outerRadius={100}
-                fill="#f9b066"
-                dataKey="value"
-                onMouseEnter={this.onPieEnter}
-              />
-            </PieChart>
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  return (
+    <section>
+      <div className="pet-figure__container">
+        <div className="pet-figure">
+          <PieChart width={400} height={400}>
+            <Pie
+              activeIndex={activeIndex}
+              activeShape={renderActiveShape}
+              data={dogData}
+              cx="50%"
+              cy="50%"
+              innerRadius={75}
+              outerRadius={100}
+              fill="#8ccde3"
+              dataKey="value"
+              onMouseEnter={onPieEnter}
+            />
+          </PieChart>
+          <PieChart width={400} height={400}>
+            <Pie
+              activeIndex={activeIndex}
+              activeShape={renderActiveShape}
+              data={catData}
+              cx="50%"
+              cy="50%"
+              innerRadius={75}
+              outerRadius={100}
+              fill="#f9b066"
+              dataKey="value"
+              onMouseEnter={onPieEnter}
+            />
+          </PieChart>
+        </div>
+        <div className="pet-figure__quote" data-aos="fade-right">
+          <p>
+            <FaQuoteLeft size={30} className="pet-figure__quote--icon" />
+            The published research study on lost pet rates found that between{" "}
+            <span className="pet-figure__quote--blue"> 16%</span> of dogs and{" "}
+            <span className="pet-figure__quote--orange"> 18%</span> of cats are
+            likely to go missing at least once in five years.
+          </p>
+        </div>
+        <div className="statement" data-aos="fade-left" data-aos-delay="200">
+          <p>
+            <RiHandHeartLine size={45} className="statement__icon" /> Losing our
+            furry friends is such a tragedy, so here at{" "}
+            <span className="statement__blue">Paws Runite</span> we work
+            together to make{" "}
+            <span className="statement__orange">happy reunions</span> for the
+            pets and their families.
+          </p>
+        </div>
+      </div>
+
+      <div className="how-it-works">
+        <h2 className="how-it-works__header">How it Works</h2>
+        <div className="circle-card__container" data-aos="fade-up">
+          <div className="circle-card circle-card--left">
+            <div className="hidden__content">
+              <h3 className="hidden__title">Step 1</h3>
+              <p className="hidden__text">Submit a lost/found pet report</p>
+            </div>
           </div>
-          <div data-aos="fade-right">
-            <div className="pet-figure__quote">
-              <p>
-                <FaQuoteLeft size={30} className="pet-figure__quote--icon" />
-                The published research study on lost pet rates found that
-                between <span className="pet-figure__quote--blue"> 16%</span> of
-                dogs and <span className="pet-figure__quote--orange"> 18%</span>{" "}
-                of cats are likely to go missing at least once in five years.
+          <div className="circle-card circle-card--middle">
+            <div className="hidden__content">
+              <h3 className="hidden__title hidden__title--middle">Step 2</h3>
+              <p className="hidden__text">
+                Search for lost/found pets in your area
               </p>
             </div>
-            <div className="statement"></div>
-
-            <p>
-              <RiHandHeartLine size={45} className="statement__icon" /> Losing
-              our furry friends is such a tragedy, so here at{" "}
-              <span className="statement__blue">Paws Runite</span> we work
-              together to make{" "}
-              <span className="statement__orange">happy reunions</span> for the
-              pets and their families.
-            </p>
           </div>
-        </div>
-
-        <div className="how-it-works">
-          <h2 className="how-it-works__header">How it Works</h2>
-          <div className="circle-card__container">
-            <div className="circle-card circle-card--left">
-              <div className="hidden__content">
-                <h3 className="hidden__title">Step 1</h3>
-                <p className="hidden__text">Submit a lost/found pet report</p>
-              </div>
-            </div>
-            <div className="circle-card circle-card--middle">
-              <div className="hidden__content">
-                <h3 className="hidden__title hidden__title--middle">Step 2</h3>
-                <p className="hidden__text">
-                  Search for lost/found pets in your area
-                </p>
-              </div>
-            </div>
-            <div className="circle-card circle-card--right">
-              <div className="hidden__content">
-                <h3 className="hidden__title">Step 3</h3>
-                <p className="hidden__text">
-                  Share to social media and get more exposures
-                </p>
-              </div>
+          <div className="circle-card circle-card--right">
+            <div className="hidden__content">
+              <h3 className="hidden__title">Step 3</h3>
+              <p className="hidden__text">
+                Share to social media and get more exposures
+              </p>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </section>
+  );
+};
 
 export default HowItWorks;
