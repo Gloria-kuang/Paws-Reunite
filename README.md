@@ -19,11 +19,13 @@ As a Paws Reunite user, you will be able to:
 
 # API references
 
-Google Map Places API, Geocoding API
+Google Map API,Google Places API, Geocoding API
 
 # Screenshots
 
 # Lessons learned & next step
+
+The most difficult part of the app is the customized search map. I found one library for diplaying and customizing the google map, one for geocoding, they work fine separately but when put together, the app crashed. I debugged for almost a day only to find that the reason it didn't work is that these two libraries have conflicts with each other. So I need to abandon one and find another replacement. So my biggest lesson learned here is that though react libraries are powerful, they do have their limitations so we should always be careful when using two or more libraries against the same API.
 
 New features expected in phase 2:
 

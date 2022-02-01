@@ -5,8 +5,8 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 function ShareButton() {
   return (
     <FacebookShareButton
-      url={"http://www.paws-reunite.com"}
-      quote={"Please help to find this pet!"}
+      url={"https://paws-reunite.web.app/"}
+      quote={"Please help this pet to find its family!"}
       hashtag="#lostpets"
     >
       <FacebookIcon size={36} className="share-button" />

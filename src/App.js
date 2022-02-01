@@ -9,6 +9,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { initializeApp } from "firebase/app";
 import SearchMap from "./components/SearchMap/SearchMap";
+import HelmetMetaData from "./components/HelmetMetaData/HelmetMetaData";
 
 function App() {
   const firebaseConfig = {
@@ -25,6 +26,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <HelmetMetaData></HelmetMetaData>
       <Header />
       <Switch>
         <Route path="/" exact component={HomePage} />

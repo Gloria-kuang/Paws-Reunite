@@ -28,9 +28,13 @@
   }
 
   &-user {
-    color: $color-white;
-    align-self: flex-end;
-    margin-bottom: 0.5rem;
+    display: none;
+
+    @include tablet {
+      color: $color-white;
+      align-self: flex-end;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 .navbar-hamburger {
