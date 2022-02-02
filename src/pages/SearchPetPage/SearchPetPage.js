@@ -20,7 +20,6 @@ function SearchPetPage() {
 
   useEffect(() => {
     getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //get report data from firebase
