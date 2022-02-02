@@ -27,7 +27,7 @@ Google Map API,Google Places API, Geocoding API
 
 # Screenshots
 
-![Alt text](./src/assets/image/circle-pet1-min.jpg?raw=true "Screenshot")
+![Alt text](./src/assets/image/HomePage-Screenshot.jpg?raw=true "Screenshot")
 
 # Lessons learned & next step
 
