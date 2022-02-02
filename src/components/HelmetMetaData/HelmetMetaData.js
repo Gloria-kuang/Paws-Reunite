@@ -3,13 +3,13 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import testImage from "../../assets/image/circle-pet1-min.jpg";
 
-function HelmetMetaData() {
+function HelmetMetaData(props) {
   let location = useLocation();
   let currentUrl = "https://paws-reunite.web.app/" + location.pathname;
   let quote = "Please help this pet to find its family! 123";
-  let title = "Paws Reunite";
-  let image = testImage;
-  let description = "This 3 month old cat went missing on Jan 20th.";
+  let title = props.title ? props.title : "Paws Reunite";
+  let image = props.image ? props.image : testImage;
+  let description = props.description ? props.description : "";
   let hashtag = "#lostpet";
 
   return (
