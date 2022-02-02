@@ -154,7 +154,10 @@ function Header() {
             )}
           </li>
         </ul>
-        <BiUserCircle size={40} className="navbar-user" />
+        <div className="navbar-user">
+          <p className="navbar-user__signup">Sign Up</p>
+          <BiUserCircle size={35} className="navbar-user__icon" />
+        </div>
       </nav>
     </>
   );
