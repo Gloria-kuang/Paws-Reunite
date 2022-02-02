@@ -18,25 +18,24 @@ function SearchPetPage() {
   const [modalShow, setModalShow] = useState(false);
   const [modalData, setModalData] = useState(null);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   //get report data from firebase
   const db = getFirestore();
 
-  const getData = async () => {
-    const q = query(collection(db, "pet-reports"), orderBy("date"));
-    const querySnapshot = await getDocs(q);
-    const reportListOld = querySnapshot.docs.map((doc) => {
-      const reportId = doc.id;
-      const reportData = doc.data();
-      return { reportId, reportData };
-    });
-    const reportList = reportListOld.reverse();
-    setReportList(reportList);
-    setDisplayList(reportList);
-  };
+  useEffect(() => {
+    const getData = async () => {
+      const q = query(collection(db, "pet-reports"), orderBy("date"));
+      const querySnapshot = await getDocs(q);
+      const reportListOld = querySnapshot.docs.map((doc) => {
+        const reportId = doc.id;
+        const reportData = doc.data();
+        return { reportId, reportData };
+      });
+      const reportList = reportListOld.reverse();
+      setReportList(reportList);
+      setDisplayList(reportList);
+    };
+    getData();
+  }, [db]);
 
   const getFilterData = async (e) => {
     e.stopPropagation();
