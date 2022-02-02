@@ -19,12 +19,15 @@ As a Paws Reunite user, you will be able to:
 
 The web app is deployed through Firebase.
 Web App Link: https://paws-reunite.web.app
+Recommended Browser: Chrome
 
 # API references
 
 Google Map API,Google Places API, Geocoding API
 
 # Screenshots
+
+![Alt text](./src/assets/image/circle-pet1-min.jpg?raw=true "Screenshot")
 
 # Lessons learned & next step
 
