@@ -20,7 +20,7 @@ function SearchPetPage() {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   //get report data from firebase
   const db = getFirestore();

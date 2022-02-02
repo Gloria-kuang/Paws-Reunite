@@ -25,7 +25,6 @@ function ReportPetPage(props) {
   }, [props.history.location]);
 
   const {
-    ready,
     value,
     suggestions: { status, data },
     setValue,
@@ -93,7 +92,7 @@ function ReportPetPage(props) {
       getGeocode({ address: e.target.address.value })
         .then((results) => getLatLng(results[0]))
         .then(async ({ lat, lng }) => {
-          const docRef = await addDoc(collection(db, "pet-reports"), {
+          await addDoc(collection(db, "pet-reports"), {
             status: e.target.status.value,
             type: e.target.type.value,
             sex: e.target.sex.value,
