@@ -2,9 +2,14 @@
 
 Paws Reunite is an APP aiming to make happy reunions for pets owners and their furry friends. It provides a platform where pets owners can post lost pets report and share found pets information. It allows users to search for pets found recently and share the lost/found pets posts to other social media platforms, which will boost up the chance of reuniting pets with their families.
 
+According to 2020 Pet Population Survey, 58% of Canadian own at least one dog or cat. Sadly, the research also shows that round 16% of dogs and 18% of cats are likely to go missing at least once in five years. Losing their furry friends will be such a tragedy to all pets owners and the traditional ways to find pets are less efficient. With Paws Reunite, pets owners can easily post the info the lost pet, share it on different social media platform and with the help of other pet owners, boost up the chance of finding their lost pets.
+
+This App is primarily targeted on pet owners in Canada who lost their pets and also pet lovers who are willing to help reunite pets with their families.
+
 # Tech stack used
 
-JavaScript, React, HTML, sass, Node.js, Firebase, React-boostrap, google-map-react, react-geocode
+JavaScript, React, HTML, sass, Node.js, Firebase
+Libraries: React-boostrap, google-map-react, react-geocode, moment, react-icons, react-share, dotenv
 
 # Features and usage instructions
 
@@ -37,4 +42,8 @@ New features expected in phase 2:
 
 - User registeration and log-in
 - Comments section under each report
+
+New features expected in phase 3:
+
 - Community section where users can share happy reunions posts
+- Community section where users can see pet adoptiong information
