@@ -31,7 +31,7 @@ function SearchMap() {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   //get report data from firebase
   const db = getFirestore();
@@ -48,7 +48,6 @@ function SearchMap() {
   };
 
   const {
-    ready,
     value,
     suggestions: { status, data },
     setValue,
@@ -151,7 +150,7 @@ function SearchMap() {
                 id="zoom"
                 value="13.5"
                 className="map-search__zoom-radio"
-                checked
+                defaultChecked
               />
             </div>
             <div className="map-search__zoom-options">
@@ -202,6 +201,7 @@ function SearchMap() {
                   lng={report.reportData.lng}
                   image={report.reportData.image}
                   status={report.reportData.status}
+                  key={report.reportId}
                   onViewClick={() => {
                     setModalData(report.reportData);
                     setModalShow(true);

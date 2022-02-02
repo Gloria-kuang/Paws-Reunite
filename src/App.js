@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPetPage from "./pages/ReportPetPage/ReportPetPage";
 import SearchPetPage from "./pages/SearchPetPage/SearchPetPage";
-import SingleReportPage from "./pages/SingleReportPage/SingleReportPage";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -22,7 +21,7 @@ function App() {
     measurementId: "G-KVY9EFYZP8"
   };
 
-  const app = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
   return (
     <BrowserRouter>
@@ -35,7 +34,6 @@ function App() {
         <Route path="/report-pet/found" component={ReportPetPage} />
         <Route path="/search-pet" component={SearchPetPage} />
         <Route path="/map-search" component={SearchMap} />
-        <Route path="/report/:reportId" component={SingleReportPage} />
       </Switch>
       <Footer />
     </BrowserRouter>

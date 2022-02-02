@@ -7,8 +7,7 @@ import {
   getDocs,
   getFirestore,
   query,
-  orderBy,
-  where
+  orderBy
 } from "firebase/firestore";
 import ReportCardModal from "../../components/ReportCardModal/ReportCardModal";
 import moment from "moment";
@@ -107,6 +106,7 @@ function SearchPetPage() {
                     setModalData(report.reportData);
                     setModalShow(true);
                   }}
+                  key={report.reportId}
                 />
               );
             })}

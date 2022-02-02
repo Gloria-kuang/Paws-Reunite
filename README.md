@@ -17,6 +17,9 @@ As a Paws Reunite user, you will be able to:
 
 # Installation on developer and production environments
 
+The web app is deployed through Firebase.
+Web App Link: https://paws-reunite.web.app
+
 # API references
 
 Google Map API,Google Places API, Geocoding API

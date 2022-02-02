@@ -28,8 +28,7 @@ const renderActiveShape = (props) => {
     endAngle,
     fill,
     payload,
-    percent,
-    value
+    percent
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
@@ -165,13 +164,13 @@ const HowItWorks = () => {
         >
           <div className="circle-card circle-card--left">
             <div className="hidden__content">
-              <h3 className="hidden__title">Step 1</h3>
+              <h3 className="hidden__title">1</h3>
               <p className="hidden__text">Submit a lost/found pet report</p>
             </div>
           </div>
           <div className="circle-card circle-card--middle">
             <div className="hidden__content">
-              <h3 className="hidden__title hidden__title--middle">Step 2</h3>
+              <h3 className="hidden__title hidden__title--middle">2</h3>
               <p className="hidden__text">
                 Search for lost/found pets in your area
               </p>
@@ -179,7 +178,7 @@ const HowItWorks = () => {
           </div>
           <div className="circle-card circle-card--right">
             <div className="hidden__content">
-              <h3 className="hidden__title">Step 3</h3>
+              <h3 className="hidden__title">3</h3>
               <p className="hidden__text">
                 Share to social media and get more exposures
               </p>

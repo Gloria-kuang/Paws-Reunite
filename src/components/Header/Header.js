@@ -94,7 +94,7 @@ function Header() {
             }}
             onMouseLeave={() => setReportDropdown(false)}
           >
-            <Link className="nav-link">
+            <Link to="/report-pet/lost" className="nav-link">
               <GiMagnifyingGlass size={25} className="nav-icon" />
               Lost & Found
             </Link>
