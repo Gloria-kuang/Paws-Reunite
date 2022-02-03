@@ -8,7 +8,7 @@ This App is primarily targeted on pet owners in Canada who lost their pets and a
 
 # Tech stack used
 
-JavaScript, React, HTML, sass, Node.js, Firebase
+JavaScript, React, HTML, Sass, Firebase
 Libraries: React-boostrap, google-map-react, react-geocode, moment, react-icons, react-share, dotenv
 
 # Features and usage instructions

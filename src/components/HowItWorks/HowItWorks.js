@@ -165,15 +165,15 @@ const HowItWorks = () => {
           <div className="circle-card circle-card--left">
             <div className="hidden__content">
               <h3 className="hidden__title">1</h3>
-              <p className="hidden__text">Submit a lost/found pet report</p>
+              <p className="hidden__text">
+                Search for lost/found pets in your area
+              </p>
             </div>
           </div>
           <div className="circle-card circle-card--middle">
             <div className="hidden__content">
               <h3 className="hidden__title hidden__title--middle">2</h3>
-              <p className="hidden__text">
-                Search for lost/found pets in your area
-              </p>
+              <p className="hidden__text">Submit a lost/found pet report</p>
             </div>
           </div>
           <div className="circle-card circle-card--right">

@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import AlternateButton from "../AlternateButton/AlternateButton";
 import Tag from "../Tag/Tag";
 import ShareButton from "../ShareButton/ShareButton";
-import HelmetMetaData from "../HelmetMetaData/HelmetMetaData";
 
 function ReportCardModal({ show, modalData, onHide }) {
   const [emailShow, setEmailShow] = useState(false);
@@ -17,8 +16,6 @@ function ReportCardModal({ show, modalData, onHide }) {
       show={show}
       onHide={onHide}
     >
-      <HelmetMetaData></HelmetMetaData>
-
       <Modal.Header closeButton>
         <Modal.Title
           id="contained-modal-title-vcenter"
