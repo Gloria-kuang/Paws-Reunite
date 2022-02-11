@@ -120,7 +120,7 @@ function SearchMap() {
       <h2 className="map-search__header">Enter Your Location</h2>
       <form className="map-search__form" onSubmit={handleAddressSubmit}>
         <input
-          className="map-search__form-input"
+          className="map-search__input"
           placeholder="Enter your address here"
           value={value}
           onChange={(e) => setValue(e.target.value)}

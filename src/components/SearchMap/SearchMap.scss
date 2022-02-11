@@ -31,33 +31,33 @@
     align-items: center;
     margin: 2rem auto;
     position: relative;
+  }
 
-    &-input {
-      height: 4rem;
-      width: 90%;
-      border-radius: 5px;
-      border: 5px solid $color-secondary-light;
-      padding: 1rem;
-      margin-bottom: 2rem;
+  &__input {
+    height: 4rem;
+    width: 90%;
+    border-radius: 5px;
+    border: 5px solid $color-secondary-light;
+    padding: 1rem;
+    margin-bottom: 2rem;
 
-      @include tablet {
-        width: 45%;
-      }
+    @include tablet {
+      width: 45%;
+    }
 
-      @include desktop {
-        width: 30%;
-      }
+    @include desktop {
+      width: 30%;
+    }
 
-      &::placeholder {
-        font-size: 1rem;
-        text-transform: uppercase;
-        text-align: center;
-      }
+    &::placeholder {
+      font-size: 1rem;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
-      &:focus {
-        outline: none;
-        border: 5px solid $color-secondary;
-      }
+    &:focus {
+      outline: none;
+      border: 5px solid $color-secondary;
     }
   }
 
